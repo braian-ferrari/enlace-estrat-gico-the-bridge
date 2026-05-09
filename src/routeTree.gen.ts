@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ServiciosRouteImport } from './routes/servicios'
+import { Route as MetodologiaRouteImport } from './routes/metodologia'
 import { Route as EnfoqueRouteImport } from './routes/enfoque'
 import { Route as IndexRouteImport } from './routes/index'
 
 const ServiciosRoute = ServiciosRouteImport.update({
   id: '/servicios',
   path: '/servicios',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MetodologiaRoute = MetodologiaRouteImport.update({
+  id: '/metodologia',
+  path: '/metodologia',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EnfoqueRoute = EnfoqueRouteImport.update({
@@ -32,30 +38,34 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/enfoque': typeof EnfoqueRoute
+  '/metodologia': typeof MetodologiaRoute
   '/servicios': typeof ServiciosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/enfoque': typeof EnfoqueRoute
+  '/metodologia': typeof MetodologiaRoute
   '/servicios': typeof ServiciosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/enfoque': typeof EnfoqueRoute
+  '/metodologia': typeof MetodologiaRoute
   '/servicios': typeof ServiciosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/enfoque' | '/servicios'
+  fullPaths: '/' | '/enfoque' | '/metodologia' | '/servicios'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/enfoque' | '/servicios'
-  id: '__root__' | '/' | '/enfoque' | '/servicios'
+  to: '/' | '/enfoque' | '/metodologia' | '/servicios'
+  id: '__root__' | '/' | '/enfoque' | '/metodologia' | '/servicios'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   EnfoqueRoute: typeof EnfoqueRoute
+  MetodologiaRoute: typeof MetodologiaRoute
   ServiciosRoute: typeof ServiciosRoute
 }
 
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/servicios'
       fullPath: '/servicios'
       preLoaderRoute: typeof ServiciosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/metodologia': {
+      id: '/metodologia'
+      path: '/metodologia'
+      fullPath: '/metodologia'
+      preLoaderRoute: typeof MetodologiaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/enfoque': {
@@ -88,8 +105,19 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   EnfoqueRoute: EnfoqueRoute,
+  MetodologiaRoute: MetodologiaRoute,
   ServiciosRoute: ServiciosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
