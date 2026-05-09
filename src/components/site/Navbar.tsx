@@ -53,19 +53,10 @@ export function Navbar() {
               key={l.to}
               to={l.to}
               activeOptions={{ exact: l.to === "/" }}
-              className="relative text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors data-[status=active]:text-accent"
+              className="group relative text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors data-[status=active]:text-accent"
             >
-              {({ isActive }) => (
-                <span className="inline-block">
-                  {l.label}
-                  <span
-                    className={cn(
-                      "absolute -bottom-1.5 left-0 h-px bg-accent transition-all duration-300",
-                      isActive ? "w-full" : "w-0 group-hover:w-full"
-                    )}
-                  />
-                </span>
-              )}
+              {l.label}
+              <span className="absolute -bottom-1.5 left-0 h-px bg-accent transition-all duration-300 w-0 group-hover:w-full group-data-[status=active]:w-full" />
             </Link>
           ))}
         </nav>
