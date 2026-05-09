@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ServiciosRouteImport } from './routes/servicios'
 import { Route as MetodologiaRouteImport } from './routes/metodologia'
 import { Route as EnfoqueRouteImport } from './routes/enfoque'
+import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as IndexRouteImport } from './routes/index'
 
 const ServiciosRoute = ServiciosRouteImport.update({
@@ -29,6 +30,11 @@ const EnfoqueRoute = EnfoqueRouteImport.update({
   path: '/enfoque',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -37,12 +43,14 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
   '/enfoque': typeof EnfoqueRoute
   '/metodologia': typeof MetodologiaRoute
   '/servicios': typeof ServiciosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
   '/enfoque': typeof EnfoqueRoute
   '/metodologia': typeof MetodologiaRoute
   '/servicios': typeof ServiciosRoute
@@ -50,20 +58,28 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contacto': typeof ContactoRoute
   '/enfoque': typeof EnfoqueRoute
   '/metodologia': typeof MetodologiaRoute
   '/servicios': typeof ServiciosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/enfoque' | '/metodologia' | '/servicios'
+  fullPaths: '/' | '/contacto' | '/enfoque' | '/metodologia' | '/servicios'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/enfoque' | '/metodologia' | '/servicios'
-  id: '__root__' | '/' | '/enfoque' | '/metodologia' | '/servicios'
+  to: '/' | '/contacto' | '/enfoque' | '/metodologia' | '/servicios'
+  id:
+    | '__root__'
+    | '/'
+    | '/contacto'
+    | '/enfoque'
+    | '/metodologia'
+    | '/servicios'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactoRoute: typeof ContactoRoute
   EnfoqueRoute: typeof EnfoqueRoute
   MetodologiaRoute: typeof MetodologiaRoute
   ServiciosRoute: typeof ServiciosRoute
@@ -92,6 +108,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnfoqueRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -104,6 +127,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactoRoute: ContactoRoute,
   EnfoqueRoute: EnfoqueRoute,
   MetodologiaRoute: MetodologiaRoute,
   ServiciosRoute: ServiciosRoute,
