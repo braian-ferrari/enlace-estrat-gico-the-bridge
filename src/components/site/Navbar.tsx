@@ -6,9 +6,11 @@ import { cn } from "@/lib/utils";
 
 const links = [
   { to: "/", label: "Inicio" },
-  { to: "/enfoque", label: "Enfoque" },
+  { to: "/enfoque", label: "Nuestro Diferencial" },
+  { to: "/ecosistemas", label: "Ecosistemas de Intervención" },
   { to: "/servicios", label: "Servicios" },
   { to: "/metodologia", label: "Metodología" },
+  { to: "/enlace-en-accion", label: "Enlace en Acción" },
   { to: "/contacto", label: "Contacto" },
 ] as const;
 
