@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  TrendingUp, Users, Building2, Cog, Wallet,
-  ShieldAlert, Search, Landmark, ArrowRight,
+  Users, TrendingUp, Cog, Wallet,
+  ShieldAlert, BarChart3, Landmark, ArrowRight,
 } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeading } from "@/components/site/SectionHeading";
@@ -13,44 +13,82 @@ export const Route = createFileRoute("/servicios")({
       {
         name: "description",
         content:
-          "Transformación y crecimiento, eficiencia y rescate corporativo, gobernanza y control. Soluciones quirúrgicas para situaciones complejas.",
+          "Profesionalización, expansión, reingeniería de procesos, reducción de costos, riesgos y auditoría, contabilidad estratégica y advisory board. Socios al frente y resultados medibles.",
       },
       { property: "og:title", content: "Servicios — Enlace Estratégico" },
       {
         property: "og:description",
         content:
-          "Diagnóstico, profesionalización, expansión, reingeniería de procesos, reducción de costos, riesgos, auditoría interna y advisory board.",
+          "Siete servicios entregados con socios al frente, equipos delgados y disciplina de implementación medible en el resultado del negocio.",
       },
     ],
   }),
   component: ServiciosPage,
 });
 
-const grupos = [
+const servicios = [
   {
-    eyebrow: "Transformación y Crecimiento",
-    title: "Construir tracción en cada etapa.",
+    icon: Users,
+    title: "Profesionalización y Recambio Generacional",
+    lead: "De la intuición a la estructura: asegurar la continuidad y el crecimiento de su legado.",
     items: [
-      { icon: TrendingUp, title: "Diagnóstico y Plan de Acción", body: "Lectura aguda del estado de la organización y hoja de ruta priorizada para destrabar el crecimiento." },
-      { icon: Users, title: "Profesionalización & Recambio Generacional", body: "Transición ordenada del management, mentoría y formación del talento que sostendrá la próxima etapa." },
-      { icon: Building2, title: "Proyectos de Expansión", body: "Diseño e implementación de modelos escalables: nuevos mercados, líneas de negocio y estructuras organizacionales." },
+      { k: "Formalización de la gestión", v: "Transformamos procesos improvisados en un modelo de negocio institucional, combinando tecnología aplicada, finanzas sanas y claridad estratégica." },
+      { k: "Gobierno corporativo", v: "Diseñamos estructuras claras y separamos roles clave para que delegar la operación sea seguro, sostenible y eficiente." },
+      { k: "Transición y sucesión", v: "Guiamos el recambio generacional mediante mentoría y formación del nuevo talento directivo, garantizando que el negocio trascienda sin perder estabilidad." },
     ],
   },
   {
-    eyebrow: "Eficiencia y Rescate Corporativo",
-    title: "Estabilizar y liberar caja.",
+    icon: TrendingUp,
+    title: "Proyectos de Expansión",
+    lead: "Modelos escalables para conquistar nuevos mercados.",
     items: [
-      { icon: Cog, title: "Reingeniería de Procesos", body: "Rediseño operativo end-to-end con foco en disciplina de ejecución y métricas claras." },
-      { icon: Wallet, title: "Reducción de Costos y Mejora del Capital de Trabajo", body: "Optimización del WC, gestión de ciclo de caja y rentabilidad por unidad de negocio." },
+      { k: "Crecimiento estructurado", v: "Diseñamos e implementamos modelos financieros y organizacionales aptos para el desarrollo de nuevas líneas de negocio o mercados geográficos." },
+      { k: "Estrategia en Startups y M&A", v: "Ofrecemos asesoramiento integral y acompañamiento estratégico tanto en el lanzamiento de startups como en procesos de fusiones y adquisiciones (Take-Overs)." },
     ],
   },
   {
-    eyebrow: "Gobernanza y Control",
-    title: "Decisiones con visión y respaldo.",
+    icon: Cog,
+    title: "Reingeniería de Procesos y Estructuras",
+    lead: "Optimización y modernización de áreas clave.",
     items: [
-      { icon: ShieldAlert, title: "Análisis de Riesgos", body: "Identificación, cuantificación y mitigación proactiva de riesgos operacionales, financieros y estratégicos." },
-      { icon: Search, title: "Auditoría Interna", body: "Diseño e implementación de sistemas de control interno y cumplimiento adaptados a la realidad de la empresa." },
-      { icon: Landmark, title: "Advisory Board", body: "Acompañamiento de directorio con experiencia especializada para decisiones en entornos complejos." },
+      { k: "Eficiencia con Inteligencia Artificial", v: "Rediseñamos procesos e implementamos flujos de trabajo híbridos, integrando agentes de IA según la madurez digital de la empresa para maximizar la productividad." },
+      { k: "Estructura a medida", v: "Reestructuramos, mejoramos o creamos nuevas áreas funcionales alineadas con los objetivos actuales del negocio." },
+    ],
+  },
+  {
+    icon: Wallet,
+    title: "Reducción de Costos y Eficiencia del Capital de Trabajo",
+    lead: "Maximicen la rentabilidad protegiendo su liquidez.",
+    items: [
+      { k: "Rentabilidad inteligente", v: "Analizamos a fondo los costos, precios y márgenes por producto o unidad de negocio para identificar fugas de dinero." },
+      { k: "Eficiencia sostenible", v: "Reducimos costos mediante la digitalización y automatización de tareas. Alineamos las decisiones operativas con la gestión del capital de trabajo para multiplicar resultados sin generar tensiones de caja." },
+    ],
+  },
+  {
+    icon: ShieldAlert,
+    title: "Análisis de Riesgos y Auditoría Interna",
+    lead: "Blindamos el valor de su compañía ante un entorno incierto.",
+    items: [
+      { k: "Gestión de riesgos", v: "Diagnosticamos, mapeamos y monitoreamos amenazas potenciales, transformando la prevención en resiliencia y ventaja competitiva." },
+      { k: "Auditoría interna estratégica", v: "Implementamos el área de auditoría como un aliado clave del negocio, utilizando enfoques ágiles y análisis continuo para asegurar el cumplimiento y proteger los activos." },
+    ],
+  },
+  {
+    icon: BarChart3,
+    title: "Contabilidad Estratégica y Reportes de Gestión",
+    lead: "Usen los números para escribir el futuro, no para leer el pasado.",
+    items: [
+      { k: "Tableros de control (KPIs)", v: "Diseñamos reportes de gestión gerencial y herramientas visuales para que la toma de decisiones se base en datos en tiempo real." },
+      { k: "Soporte continuo", v: "Brindamos asesoramiento administrativo y contable constante, convirtiendo los datos regulatorios en insights de negocio." },
+    ],
+  },
+  {
+    icon: Landmark,
+    title: "Advisory Board (Consejo Asesor)",
+    lead: "Una mirada externa experta para mantener el rumbo.",
+    items: [
+      { k: "Disciplina ejecutiva", v: "Participamos activamente en sus revisiones estratégicas, aportando una visión objetiva y corporativa." },
+      { k: "Mentoría y control", v: "Monitoreamos los KPIs críticos del negocio y brindamos mentoría a los líderes de la organización para asegurar el cumplimiento de metas." },
     ],
   },
 ] as const;
@@ -63,49 +101,43 @@ function ServiciosPage() {
           <Reveal>
             <SectionHeading
               eyebrow="Servicios"
-              title="Tres áreas. Una sola lógica: ejecución."
+              title="Nuestros Servicios"
               description="Cada servicio se entrega con socios al frente, equipos delgados y una disciplina de implementación medible en el resultado del negocio."
             />
           </Reveal>
         </div>
       </section>
 
-      {grupos.map((g, gi) => (
-        <section
-          key={g.eyebrow}
-          className={`py-20 md:py-24 ${gi % 2 === 1 ? "bg-card/20 border-y border-accent/10" : ""}`}
-        >
-          <div className="mx-auto max-w-7xl px-5 md:px-8">
-            <Reveal>
-              <div className="flex items-baseline gap-6 flex-wrap mb-12">
-                <span className="font-serif text-accent text-2xl">0{gi + 1}</span>
-                <div>
-                  <div className="text-xs tracking-[0.32em] uppercase text-accent mb-2">
-                    {g.eyebrow}
-                  </div>
-                  <h2 className="font-serif text-3xl md:text-4xl text-foreground text-balance leading-tight">
-                    {g.title}
-                  </h2>
-                </div>
-              </div>
-            </Reveal>
-
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {g.items.map((s, i) => (
-                <Reveal key={s.title} delay={i * 90}>
-                  <article className="group h-full rounded-sm border border-accent/20 bg-card/60 p-7 transition-all hover:border-accent/60 hover:-translate-y-1 hover:shadow-gold-glow">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 border border-accent/30 mb-5 group-hover:bg-accent/20 transition-colors">
+      <section className="py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-5 md:px-8">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {servicios.map((s, i) => (
+              <Reveal key={s.title} delay={(i % 3) * 90}>
+                <article className="group h-full flex flex-col rounded-sm border border-accent/20 bg-card/60 p-7 transition-all hover:border-accent/60 hover:-translate-y-1 hover:shadow-gold-glow">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent/10 border border-accent/30 group-hover:bg-accent/20 transition-colors">
                       <s.icon className="h-5 w-5 text-accent" />
                     </div>
-                    <h3 className="font-serif text-xl text-foreground mb-3">{s.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{s.body}</p>
-                  </article>
-                </Reveal>
-              ))}
-            </div>
+                    <span className="font-serif text-accent/70 text-sm">0{i + 1}</span>
+                  </div>
+                  <h3 className="font-serif text-xl text-foreground mb-2">{s.title}</h3>
+                  <p className="text-sm italic text-accent mb-5 leading-relaxed">{s.lead}</p>
+                  <ul className="space-y-4 mt-auto">
+                    {s.items.map((it) => (
+                      <li key={it.k} className="text-sm leading-relaxed">
+                        <span className="block text-foreground font-medium mb-0.5">
+                          {it.k}
+                        </span>
+                        <span className="text-muted-foreground">{it.v}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              </Reveal>
+            ))}
           </div>
-        </section>
-      ))}
+        </div>
+      </section>
 
       <section className="py-20 border-t border-accent/10">
         <div className="mx-auto max-w-3xl px-5 md:px-8 text-center">

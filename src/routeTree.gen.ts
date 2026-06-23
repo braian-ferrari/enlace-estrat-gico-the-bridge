@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ServiciosRouteImport } from './routes/servicios'
 import { Route as MetodologiaRouteImport } from './routes/metodologia'
 import { Route as EnfoqueRouteImport } from './routes/enfoque'
+import { Route as EcosistemasRouteImport } from './routes/ecosistemas'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -30,6 +31,11 @@ const EnfoqueRoute = EnfoqueRouteImport.update({
   path: '/enfoque',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EcosistemasRoute = EcosistemasRouteImport.update({
+  id: '/ecosistemas',
+  path: '/ecosistemas',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactoRoute = ContactoRouteImport.update({
   id: '/contacto',
   path: '/contacto',
@@ -44,6 +50,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contacto': typeof ContactoRoute
+  '/ecosistemas': typeof EcosistemasRoute
   '/enfoque': typeof EnfoqueRoute
   '/metodologia': typeof MetodologiaRoute
   '/servicios': typeof ServiciosRoute
@@ -51,6 +58,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contacto': typeof ContactoRoute
+  '/ecosistemas': typeof EcosistemasRoute
   '/enfoque': typeof EnfoqueRoute
   '/metodologia': typeof MetodologiaRoute
   '/servicios': typeof ServiciosRoute
@@ -59,19 +67,33 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contacto': typeof ContactoRoute
+  '/ecosistemas': typeof EcosistemasRoute
   '/enfoque': typeof EnfoqueRoute
   '/metodologia': typeof MetodologiaRoute
   '/servicios': typeof ServiciosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contacto' | '/enfoque' | '/metodologia' | '/servicios'
+  fullPaths:
+    | '/'
+    | '/contacto'
+    | '/ecosistemas'
+    | '/enfoque'
+    | '/metodologia'
+    | '/servicios'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contacto' | '/enfoque' | '/metodologia' | '/servicios'
+  to:
+    | '/'
+    | '/contacto'
+    | '/ecosistemas'
+    | '/enfoque'
+    | '/metodologia'
+    | '/servicios'
   id:
     | '__root__'
     | '/'
     | '/contacto'
+    | '/ecosistemas'
     | '/enfoque'
     | '/metodologia'
     | '/servicios'
@@ -80,6 +102,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactoRoute: typeof ContactoRoute
+  EcosistemasRoute: typeof EcosistemasRoute
   EnfoqueRoute: typeof EnfoqueRoute
   MetodologiaRoute: typeof MetodologiaRoute
   ServiciosRoute: typeof ServiciosRoute
@@ -108,6 +131,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnfoqueRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ecosistemas': {
+      id: '/ecosistemas'
+      path: '/ecosistemas'
+      fullPath: '/ecosistemas'
+      preLoaderRoute: typeof EcosistemasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contacto': {
       id: '/contacto'
       path: '/contacto'
@@ -128,6 +158,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactoRoute: ContactoRoute,
+  EcosistemasRoute: EcosistemasRoute,
   EnfoqueRoute: EnfoqueRoute,
   MetodologiaRoute: MetodologiaRoute,
   ServiciosRoute: ServiciosRoute,
