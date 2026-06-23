@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Compass, Wrench, Users, ArrowRight } from "lucide-react";
+import { Search, Map, Hammer, Gauge, ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeading } from "@/components/site/SectionHeading";
 
@@ -10,77 +10,50 @@ export const Route = createFileRoute("/metodologia")({
       {
         name: "description",
         content:
-          "Estrategia, Ejecución y Personas: tres engranajes que aseguran que la transformación se instale permanentemente en el ADN de la empresa.",
+          "Un proceso de cuatro etapas enfocado en la acción y en generar autonomía: diagnóstico profundo, definición estratégica, ejecución operativa y medición con autonomía.",
       },
       { property: "og:title", content: "Metodología — Enlace Estratégico" },
       {
         property: "og:description",
         content:
-          "El Rumbo, El Puente y El Motor: nuestro enfoque integral de transformación organizacional.",
+          "El camino hacia la eficiencia: diagnóstico, estrategia, ejecución en el terreno y autonomía sostenible para su empresa.",
       },
     ],
   }),
   component: MetodologiaPage,
 });
 
-const pilares = [
+const pasos = [
   {
-    icon: Compass,
-    eyebrow: "01 · El Rumbo",
-    title: "Estrategia",
-    body: "Diagnóstico agudo, modelos escalables y mitigación proactiva de riesgos. Definimos hacia dónde y por qué.",
+    icon: Search,
+    num: "01",
+    title: "Diagnóstico Profundo",
+    lead: "Entendemos dónde están para definir hacia dónde ir.",
+    body: "Realizamos un análisis exhaustivo de la situación actual de su empresa. Identificamos cuellos de botella, fugas de rentabilidad y oportunidades ocultas. Un diagnóstico preciso es la única base sólida para trazar una hoja de ruta exitosa.",
   },
   {
-    icon: Wrench,
-    eyebrow: "02 · El Puente",
-    title: "Ejecución",
-    body: "Reingeniería de procesos, estabilización inmediata y disciplina operativa. Cruzamos del plan a la realidad.",
+    icon: Map,
+    num: "02",
+    title: "Definición Estratégica y Plan de Acción",
+    lead: "Trazamos el mapa de ruta con metas claras.",
+    body: "Establecemos objetivos financieros y operativos medibles. Diseñamos un plan de acción estructurado, cronogramas de trabajo y asignación de recursos, asegurando que cada paso tenga un propósito claro y alineado con la visión de los socios.",
   },
   {
-    icon: Users,
-    eyebrow: "03 · El Motor",
-    title: "Personas",
-    body: "Cambio cultural, profesionalización, mentoría y recambio generacional. El know-how queda en el equipo.",
+    icon: Hammer,
+    num: "03",
+    title: "Ejecución Operativa",
+    tag: "Nuestro Diferenciador",
+    lead: "No solo aconsejamos, implementamos con ustedes en el terreno.",
+    body: "Este es nuestro pilar fundamental. Nos involucramos de principio a fin, con los socios de la firma liderando la ejecución. Actuamos con absoluta inmersión operativa, como un equipo externo pero 100% integrado a su día a día. Construimos el puente entre la estrategia y los resultados reales.",
+  },
+  {
+    icon: Gauge,
+    num: "04",
+    title: "Medición, Optimización y Autonomía",
+    lead: "Monitoreamos el éxito y preparamos a su equipo para el futuro.",
+    body: "Controlamos el cumplimiento de las metas mediante un riguroso seguimiento de KPIs. Nuestro enfoque está diseñado para no generar dependencia: capacitamos a su personal, profesionalizamos los mandos medios e incorporamos talento para garantizar la continuidad y la total autonomía del negocio.",
   },
 ];
-
-function GearTrio() {
-  return (
-    <svg
-      viewBox="0 0 800 280"
-      className="w-full h-auto text-accent"
-      fill="none"
-      stroke="currentColor"
-      aria-hidden="true"
-    >
-      <line x1="60" y1="140" x2="740" y2="140" strokeWidth="1" strokeDasharray="3 5" opacity="0.4" />
-      {[140, 400, 660].map((cx, i) => (
-        <g key={cx}>
-          <circle cx={cx} cy="140" r="74" strokeWidth="1.2" />
-          <circle cx={cx} cy="140" r="62" strokeWidth="0.8" opacity="0.6" />
-          <circle cx={cx} cy="140" r="14" strokeWidth="1" />
-          {Array.from({ length: 12 }).map((_, t) => {
-            const a = (t / 12) * Math.PI * 2;
-            const x1 = cx + Math.cos(a) * 74;
-            const y1 = 140 + Math.sin(a) * 74;
-            const x2 = cx + Math.cos(a) * 84;
-            const y2 = 140 + Math.sin(a) * 84;
-            return <line key={t} x1={x1} y1={y1} x2={x2} y2={y2} strokeWidth="1.2" />;
-          })}
-          <text x={cx} y="148" textAnchor="middle" fill="currentColor" fontSize="22" fontFamily="Playfair Display, serif" fontStyle="italic">
-            {i + 1}
-          </text>
-        </g>
-      ))}
-      {[270, 530].map((x) => (
-        <g key={x}>
-          <line x1={x - 10} y1="140" x2={x + 10} y2="140" strokeWidth="1.2" />
-          <polyline points={`${x + 4},134 ${x + 12},140 ${x + 4},146`} strokeWidth="1.2" />
-        </g>
-      ))}
-    </svg>
-  );
-}
 
 function MetodologiaPage() {
   return (
@@ -90,8 +63,8 @@ function MetodologiaPage() {
           <Reveal>
             <SectionHeading
               eyebrow="Metodología"
-              title="Tres engranajes interconectados."
-              description="Estrategia, Ejecución y Personas no funcionan en serie: funcionan acoplados. Si uno falla, el sistema entero pierde tracción."
+              title="Nuestra Metodología: El Camino hacia la Eficiencia"
+              description="No creemos en las fórmulas genéricas ni en los reportes que se quedan en un cajón. Diseñamos un proceso de cuatro etapas enfocado en la acción y en generar autonomía para su empresa."
             />
           </Reveal>
         </div>
@@ -99,26 +72,30 @@ function MetodologiaPage() {
 
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-5xl px-5 md:px-8">
-          <Reveal>
-            <GearTrio />
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="pb-24">
-        <div className="mx-auto max-w-7xl px-5 md:px-8">
-          <div className="grid gap-6 md:grid-cols-3">
-            {pilares.map((p, i) => (
-              <Reveal key={p.title} delay={i * 120}>
-                <article className="h-full rounded-sm border border-accent/20 bg-card/60 p-8 hover:border-accent/60 hover:shadow-gold-glow transition-all">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-accent/10 border border-accent/30 mb-6">
-                    <p.icon className="h-6 w-6 text-accent" />
+          <div className="relative flex flex-col gap-8">
+            {/* connecting line */}
+            <span className="absolute left-[27px] top-4 bottom-4 w-px bg-accent/20 hidden md:block" />
+            {pasos.map((p, i) => (
+              <Reveal key={p.num} delay={i * 100}>
+                <article className="group relative grid gap-5 md:grid-cols-[56px_1fr] rounded-sm border border-accent/20 bg-card/60 p-7 md:p-8 transition-all hover:border-accent/60 hover:shadow-gold-glow">
+                  <div className="relative flex md:flex-col items-center gap-3 md:gap-0">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-accent/10 border border-accent/40 group-hover:bg-accent/20 transition-colors z-10">
+                      <p.icon className="h-6 w-6 text-accent" />
+                    </div>
                   </div>
-                  <div className="text-xs tracking-[0.3em] uppercase text-accent mb-2">
-                    {p.eyebrow}
+                  <div>
+                    <div className="flex items-center gap-3 flex-wrap mb-2">
+                      <span className="font-serif text-accent text-2xl">{p.num}</span>
+                      <h3 className="font-serif text-2xl text-foreground">{p.title}</h3>
+                      {p.tag && (
+                        <span className="text-[10px] tracking-[0.2em] uppercase text-accent border border-accent/40 rounded-sm px-2 py-1">
+                          {p.tag}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-base italic text-accent mb-3 leading-relaxed">{p.lead}</p>
+                    <p className="text-muted-foreground leading-relaxed">{p.body}</p>
                   </div>
-                  <h3 className="font-serif text-2xl text-foreground mb-4">{p.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{p.body}</p>
                 </article>
               </Reveal>
             ))}
@@ -130,8 +107,7 @@ function MetodologiaPage() {
         <div className="mx-auto max-w-4xl px-5 md:px-8 text-center">
           <Reveal>
             <p className="font-serif italic text-2xl md:text-3xl text-foreground text-balance leading-snug">
-              "Nuestro enfoque integral asegura que la transformación no solo se diseñe,
-              sino que se instale permanentemente en el ADN de la empresa."
+              "Construimos el puente entre la estrategia y los resultados reales."
             </p>
           </Reveal>
           <Reveal delay={120}>
