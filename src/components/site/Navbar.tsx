@@ -66,14 +66,14 @@ export function Navbar() {
 
         <Link
           to="/contacto"
-          className="hidden lg:inline-flex items-center justify-center bg-gradient-gold text-accent-foreground px-5 py-2.5 text-xs tracking-[0.2em] uppercase font-medium hover:opacity-90 transition-opacity rounded-sm"
+          className="hidden xl:inline-flex items-center justify-center bg-gradient-gold text-accent-foreground px-5 py-2.5 text-xs tracking-[0.2em] uppercase font-medium hover:opacity-90 transition-opacity rounded-sm"
         >
           Conversemos
         </Link>
 
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
-            <button className="lg:hidden text-foreground p-2" aria-label="Abrir menú">
+            <button className="xl:hidden text-foreground p-2" aria-label="Abrir menú">
               <Menu className="h-6 w-6" />
             </button>
           </SheetTrigger>
