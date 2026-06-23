@@ -49,19 +49,20 @@ export function Navbar() {
       <div className="mx-auto max-w-7xl flex items-center justify-between px-5 md:px-8 h-20">
         <Logo />
 
-        <nav className="hidden lg:flex items-center gap-9">
+        <nav className="hidden xl:flex items-center gap-6">
           {links.map((l) => (
             <Link
               key={l.to}
               to={l.to}
               activeOptions={{ exact: l.to === "/" }}
-              className="group relative text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors data-[status=active]:text-accent"
+              className="group relative text-[13px] tracking-wide text-muted-foreground hover:text-foreground transition-colors data-[status=active]:text-accent whitespace-nowrap"
             >
               {l.label}
               <span className="absolute -bottom-1.5 left-0 h-px bg-accent transition-all duration-300 w-0 group-hover:w-full group-data-[status=active]:w-full" />
             </Link>
           ))}
         </nav>
+
 
         <Link
           to="/contacto"
