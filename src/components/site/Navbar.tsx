@@ -6,9 +6,11 @@ import { cn } from "@/lib/utils";
 
 const links = [
   { to: "/", label: "Inicio" },
-  { to: "/enfoque", label: "Enfoque" },
+  { to: "/enfoque", label: "Nuestro Diferencial" },
+  { to: "/ecosistemas", label: "Ecosistemas de Intervención" },
   { to: "/servicios", label: "Servicios" },
   { to: "/metodologia", label: "Metodología" },
+  { to: "/enlace-en-accion", label: "Enlace en Acción" },
   { to: "/contacto", label: "Contacto" },
 ] as const;
 
@@ -47,13 +49,13 @@ export function Navbar() {
       <div className="mx-auto max-w-7xl flex items-center justify-between px-5 md:px-8 h-20">
         <Logo />
 
-        <nav className="hidden lg:flex items-center gap-9">
+        <nav className="hidden xl:flex items-center gap-6">
           {links.map((l) => (
             <Link
               key={l.to}
               to={l.to}
               activeOptions={{ exact: l.to === "/" }}
-              className="group relative text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors data-[status=active]:text-accent"
+              className="group relative text-[13px] tracking-wide text-muted-foreground hover:text-foreground transition-colors data-[status=active]:text-accent whitespace-nowrap"
             >
               {l.label}
               <span className="absolute -bottom-1.5 left-0 h-px bg-accent transition-all duration-300 w-0 group-hover:w-full group-data-[status=active]:w-full" />
@@ -61,16 +63,17 @@ export function Navbar() {
           ))}
         </nav>
 
+
         <Link
           to="/contacto"
-          className="hidden lg:inline-flex items-center justify-center bg-gradient-gold text-accent-foreground px-5 py-2.5 text-xs tracking-[0.2em] uppercase font-medium hover:opacity-90 transition-opacity rounded-sm"
+          className="hidden xl:inline-flex items-center justify-center bg-gradient-gold text-accent-foreground px-5 py-2.5 text-xs tracking-[0.2em] uppercase font-medium hover:opacity-90 transition-opacity rounded-sm"
         >
           Conversemos
         </Link>
 
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
-            <button className="lg:hidden text-foreground p-2" aria-label="Abrir menú">
+            <button className="xl:hidden text-foreground p-2" aria-label="Abrir menú">
               <Menu className="h-6 w-6" />
             </button>
           </SheetTrigger>
