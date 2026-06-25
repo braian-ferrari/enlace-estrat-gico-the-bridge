@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AlertTriangle, CheckCircle2, ArrowRight } from "lucide-react";
-import { TwoBridges, BridgeBanner } from "@/components/site/TwoBridges";
+import { BridgeBanner } from "@/components/site/TwoBridges";
 import { Reveal } from "@/components/site/Reveal";
+import heroBridges from "@/assets/hero-bridges.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -44,8 +45,14 @@ function HomePage() {
             </h1>
           </Reveal>
           <Reveal delay={240}>
-            <div className="mt-12 w-full max-w-3xl text-accent">
-              <TwoBridges />
+            <div className="mt-12 w-full max-w-4xl">
+              <img
+                src={heroBridges}
+                alt="Del plano a la obra: la transformación de la idea a la ejecución"
+                width={1536}
+                height={640}
+                className="w-full h-auto rounded-sm"
+              />
             </div>
           </Reveal>
           <Reveal delay={360}>
