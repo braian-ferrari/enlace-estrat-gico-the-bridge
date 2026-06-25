@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AlertTriangle, CheckCircle2, ArrowRight } from "lucide-react";
-import { TwoBridges, BridgeBanner } from "@/components/site/TwoBridges";
+import { BridgeBanner } from "@/components/site/TwoBridges";
 import { Reveal } from "@/components/site/Reveal";
+import heroBridges from "@/assets/hero-bridges.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
