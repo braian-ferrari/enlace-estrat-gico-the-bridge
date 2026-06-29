@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AlertTriangle, CheckCircle2 } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
-import heroBridges from "@/assets/hero-bridges.jpg";
+import heroBridgesAsset from "@/assets/hero-bridges.png.asset.json";
+
+const heroBridges = heroBridgesAsset.url;
 
 export const Route = createFileRoute("/")({
   head: () => ({
