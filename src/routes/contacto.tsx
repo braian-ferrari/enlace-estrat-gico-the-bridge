@@ -76,13 +76,8 @@ function ContactoPage() {
               <span className="italic text-accent">excelencia operativa.</span>
             </h1>
           </Reveal>
-          <Reveal delay={200}>
-            <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto text-balance">
-              Cada conversación empieza con una escucha atenta. Contanos qué desafío
-              estás cruzando y te respondemos en menos de 48 horas.
-            </p>
-          </Reveal>
         </div>
+
       </section>
 
       <section className="py-16 md:py-24">
