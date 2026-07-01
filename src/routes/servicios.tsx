@@ -122,7 +122,7 @@ function ServiciosPage() {
                   </div>
                   <h3 className="font-serif text-xl text-foreground mb-2">{s.title}</h3>
                   <p className="text-sm italic text-accent mb-5 leading-relaxed">{s.lead}</p>
-                  <ul className="space-y-4 mt-auto">
+                  <ul className="space-y-4">
                     {s.items.map((it) => (
                       <li key={it.k} className="text-sm leading-relaxed">
                         <span className="block text-foreground font-medium mb-0.5">
