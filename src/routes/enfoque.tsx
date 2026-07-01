@@ -92,37 +92,54 @@ function Ornament() {
   );
 }
 
-/** Ornate classical column with a distinct icon resting on the capital. */
+/** Ornate classical column with a distinct bronze icon resting on the capital. */
 function PillarColumn({ Icon }: { Icon: LucideIcon }) {
   return (
     <div className="flex flex-col items-center">
-      <div className="flex h-14 w-14 items-center justify-center rounded-full border border-accent/40 bg-accent/10 text-accent">
-        <Icon className="h-7 w-7" strokeWidth={1.5} />
+      <div className="relative flex flex-col items-center">
+        {/* icon resting directly on the capital */}
+        <Icon
+          className="h-9 w-9 text-accent relative z-10 -mb-2"
+          strokeWidth={1.5}
+        />
+        <svg
+          viewBox="0 0 90 130"
+          className="h-32 w-auto text-accent"
+          fill="none"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          {/* abacus / capital top */}
+          <rect x="14" y="14" width="62" height="8" strokeWidth="1.4" />
+          <path
+            d="M18 22 q6 8 0 16 M72 22 q-6 8 0 16"
+            strokeWidth="1.1"
+            opacity="0.85"
+          />
+          <line x1="16" y1="38" x2="74" y2="38" strokeWidth="1.5" />
+          {/* shaft with flutes */}
+          <line x1="24" y1="38" x2="24" y2="110" strokeWidth="1.5" />
+          <line x1="66" y1="38" x2="66" y2="110" strokeWidth="1.5" />
+          {[33, 42, 51, 60].map((x) => (
+            <line
+              key={x}
+              x1={x}
+              y1="40"
+              x2={x}
+              y2="108"
+              strokeWidth="0.7"
+              opacity="0.5"
+            />
+          ))}
+          {/* base */}
+          <line x1="16" y1="110" x2="74" y2="110" strokeWidth="1.5" />
+          <rect x="10" y="110" width="70" height="11" strokeWidth="1.4" />
+        </svg>
       </div>
-      <svg
-        viewBox="0 0 90 120"
-        className="mt-3 h-28 w-auto text-accent"
-        fill="none"
-        stroke="currentColor"
-        aria-hidden="true"
-      >
-        {/* abacus / capital top */}
-        <rect x="16" y="6" width="58" height="9" strokeWidth="1.3" />
-        <path d="M20 15 q5 9 0 14 M70 15 q-5 9 0 14" strokeWidth="1.1" opacity="0.8" />
-        <line x1="18" y1="29" x2="72" y2="29" strokeWidth="1.4" />
-        {/* shaft with flutes */}
-        <line x1="26" y1="29" x2="26" y2="100" strokeWidth="1.4" />
-        <line x1="64" y1="29" x2="64" y2="100" strokeWidth="1.4" />
-        {[35, 45, 55].map((x) => (
-          <line key={x} x1={x} y1="31" x2={x} y2="98" strokeWidth="0.7" opacity="0.5" />
-        ))}
-        {/* base */}
-        <line x1="18" y1="100" x2="72" y2="100" strokeWidth="1.4" />
-        <rect x="12" y="100" width="66" height="11" strokeWidth="1.3" />
-      </svg>
     </div>
   );
 }
+
 
 function DiferencialPage() {
   return (
