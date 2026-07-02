@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetHeader } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
+import logoEnlace from "@/assets/logo-enlace.jpeg";
 
 const links = [
   { to: "/", label: "Inicio" },
@@ -16,12 +17,19 @@ const links = [
 
 function Logo() {
   return (
-    <Link to="/" className="group flex flex-col leading-none">
-      <span className="font-serif text-base md:text-lg tracking-[0.18em] text-foreground">
-        ENLACE ESTRATÉGICO
-      </span>
-      <span className="text-[10px] md:text-[11px] tracking-[0.32em] uppercase text-accent mt-1">
-        Consultores Especializados
+    <Link to="/" className="group flex items-center gap-3">
+      <img
+        src={logoEnlace}
+        alt="Enlace Estratégico"
+        className="h-11 md:h-12 w-auto rounded-sm"
+      />
+      <span className="flex flex-col leading-none">
+        <span className="font-serif text-base md:text-lg tracking-[0.18em] text-foreground">
+          ENLACE ESTRATÉGICO
+        </span>
+        <span className="text-[10px] md:text-[11px] tracking-[0.32em] uppercase text-accent mt-1">
+          Consultores Especializados
+        </span>
       </span>
     </Link>
   );
