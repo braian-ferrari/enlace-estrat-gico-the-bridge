@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Mail } from "lucide-react";
 import { BridgeBlueprint } from "./BridgeBlueprint";
+import logoEnlace from "@/assets/logo-enlace.jpeg";
 
 export function Footer() {
   return (
@@ -10,6 +11,11 @@ export function Footer() {
       </div>
       <div className="mx-auto max-w-7xl px-5 md:px-8 py-14 grid gap-10 md:grid-cols-3">
         <div>
+          <img
+            src={logoEnlace}
+            alt="Enlace Estratégico"
+            className="h-14 w-auto rounded-sm mb-4"
+          />
           <div className="font-serif text-lg tracking-[0.18em]">ENLACE ESTRATÉGICO</div>
           <div className="text-[11px] tracking-[0.32em] uppercase text-accent mt-1">
             Consultores Especializados
