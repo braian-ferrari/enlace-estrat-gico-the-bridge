@@ -10,6 +10,7 @@ import {
   Eye,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import type { ReactNode } from "react";
 import { Reveal } from "@/components/site/Reveal";
 
 export const Route = createFileRoute("/enfoque")({
