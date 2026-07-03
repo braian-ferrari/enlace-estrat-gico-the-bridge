@@ -98,7 +98,7 @@ export function Navbar() {
                 onClick={() => setOpen(false)}
                 className="mt-4 mx-4 inline-flex items-center justify-center bg-gradient-gold text-accent-foreground px-5 py-3 text-xs tracking-[0.2em] uppercase font-medium rounded-sm"
               >
-                Conversemos
+                Contacto
               </Link>
             </nav>
           </SheetContent>
