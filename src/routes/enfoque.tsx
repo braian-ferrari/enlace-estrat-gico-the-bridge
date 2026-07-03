@@ -92,55 +92,7 @@ function Ornament() {
   );
 }
 
-/** Ornate classical column with a distinct bronze icon resting on the capital. */
-function PillarColumn({ icon }: { icon: ReactNode }) {
-  return (
-    <div className="flex flex-col items-center">
-      <div className="relative flex flex-col items-center">
-        {/* icon resting directly on the capital */}
-        <div className="relative z-10 -mb-2 flex items-end justify-center">
-          {icon}
-        </div>
-        <svg
-          viewBox="0 0 90 130"
-          className="h-32 w-auto text-accent"
-          fill="none"
-          stroke="currentColor"
-          aria-hidden="true"
-        >
-          {/* abacus / capital top with ionic volutes */}
-          <rect x="10" y="14" width="70" height="7" strokeWidth="1.4" />
-          <path
-            d="M14 21 q-2 9 8 9 q10 0 8 -9 M76 21 q2 9 -8 9 q-10 0 -8 -9"
-            strokeWidth="1.1"
-            opacity="0.9"
-          />
-          <line x1="16" y1="30" x2="74" y2="30" strokeWidth="1.4" />
-          <rect x="14" y="30" width="62" height="6" strokeWidth="1.2" />
-          <line x1="16" y1="40" x2="74" y2="40" strokeWidth="1.5" />
-          {/* shaft with flutes */}
-          <line x1="24" y1="40" x2="24" y2="110" strokeWidth="1.5" />
-          <line x1="66" y1="40" x2="66" y2="110" strokeWidth="1.5" />
-          {[33, 42, 51, 60].map((x) => (
-            <line
-              key={x}
-              x1={x}
-              y1="42"
-              x2={x}
-              y2="108"
-              strokeWidth="0.7"
-              opacity="0.5"
-            />
-          ))}
-          {/* base */}
-          <line x1="16" y1="110" x2="74" y2="110" strokeWidth="1.5" />
-          <rect x="12" y="110" width="66" height="7" strokeWidth="1.3" />
-          <rect x="9" y="117" width="72" height="7" strokeWidth="1.4" />
-        </svg>
-      </div>
-    </div>
-  );
-}
+
 
 
 function DiferencialPage() {
