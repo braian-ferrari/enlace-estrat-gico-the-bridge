@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetHeader } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
-import logoEnlace from "@/assets/logo-enlace.jpeg";
+import logoEnlace from "@/assets/logo-enlace-navbar.png";
 
 const links = [
   { to: "/", label: "Inicio" },
@@ -21,16 +21,8 @@ function Logo() {
       <img
         src={logoEnlace}
         alt="Enlace Estratégico"
-        className="h-11 md:h-12 w-auto rounded-sm"
+        className="h-14 md:h-16 w-auto"
       />
-      <span className="flex flex-col leading-none">
-        <span className="font-serif text-base md:text-lg tracking-[0.18em] text-foreground">
-          ENLACE ESTRATÉGICO
-        </span>
-        <span className="text-[10px] md:text-[11px] tracking-[0.32em] uppercase text-accent mt-1">
-          Consultores Especializados
-        </span>
-      </span>
     </Link>
   );
 }
@@ -76,7 +68,7 @@ export function Navbar() {
           to="/contacto"
           className="hidden xl:inline-flex items-center justify-center bg-gradient-gold text-accent-foreground px-5 py-2.5 text-xs tracking-[0.2em] uppercase font-medium hover:opacity-90 transition-opacity rounded-sm"
         >
-          Conversemos
+          Contacto
         </Link>
 
         <Sheet open={open} onOpenChange={setOpen}>
@@ -106,7 +98,7 @@ export function Navbar() {
                 onClick={() => setOpen(false)}
                 className="mt-4 mx-4 inline-flex items-center justify-center bg-gradient-gold text-accent-foreground px-5 py-3 text-xs tracking-[0.2em] uppercase font-medium rounded-sm"
               >
-                Conversemos
+                Contacto
               </Link>
             </nav>
           </SheetContent>
