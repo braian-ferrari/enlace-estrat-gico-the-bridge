@@ -68,7 +68,7 @@ export function Navbar() {
           to="/contacto"
           className="hidden xl:inline-flex items-center justify-center bg-gradient-gold text-accent-foreground px-5 py-2.5 text-xs tracking-[0.2em] uppercase font-medium hover:opacity-90 transition-opacity rounded-sm"
         >
-          Conversemos
+          Contacto
         </Link>
 
         <Sheet open={open} onOpenChange={setOpen}>
