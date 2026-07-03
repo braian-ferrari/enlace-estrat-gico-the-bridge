@@ -216,7 +216,12 @@ function DiferencialPage() {
             {pilares.map((p, i) => (
               <Reveal key={p.title} delay={i * 100}>
                 <article className="flex h-full flex-col items-center text-center">
-                  <PillarColumn icon={p.renderIcon()} />
+                  <img
+                    src={p.img}
+                    alt={`Columna clásica — ${p.title}`}
+                    className="h-40 md:h-48 w-auto"
+                    loading="lazy"
+                  />
                   <h3 className="mt-6 font-serif text-lg uppercase tracking-[0.1em] text-accent">
                     {p.title}
                   </h3>
