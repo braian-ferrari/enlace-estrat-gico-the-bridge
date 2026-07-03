@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetHeader } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
-import logoEnlace from "@/assets/logo-enlace.jpeg";
+import logoEnlace from "@/assets/logo-enlace-navbar.png";
 
 const links = [
   { to: "/", label: "Inicio" },
