@@ -21,16 +21,8 @@ function Logo() {
       <img
         src={logoEnlace}
         alt="Enlace Estratégico"
-        className="h-11 md:h-12 w-auto rounded-sm"
+        className="h-14 md:h-16 w-auto"
       />
-      <span className="flex flex-col leading-none">
-        <span className="font-serif text-base md:text-lg tracking-[0.18em] text-foreground">
-          ENLACE ESTRATÉGICO
-        </span>
-        <span className="text-[10px] md:text-[11px] tracking-[0.32em] uppercase text-accent mt-1">
-          Consultores Especializados
-        </span>
-      </span>
     </Link>
   );
 }
