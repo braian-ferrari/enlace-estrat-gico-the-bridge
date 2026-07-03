@@ -5,13 +5,12 @@ import {
   Landmark,
   Crosshair,
   ArrowRight,
-  Settings,
-  Handshake,
-  Eye,
 } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
-import type { ReactNode } from "react";
 import { Reveal } from "@/components/site/Reveal";
+import pilarFoco from "@/assets/pilar-foco.png";
+import pilarTransferencia from "@/assets/pilar-transferencia.png";
+import pilarServicio from "@/assets/pilar-servicio.png";
+import pilarIndependencia from "@/assets/pilar-independencia.png";
 
 export const Route = createFileRoute("/enfoque")({
   head: () => ({
