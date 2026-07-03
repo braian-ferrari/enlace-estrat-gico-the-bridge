@@ -59,38 +59,24 @@ const rows = [
   },
 ];
 
-const pilares: { title: string; body: string; renderIcon: () => ReactNode }[] = [
+const pilares: { title: string; body: string; img: string }[] = [
   {
-    renderIcon: () => (
-      <Crosshair className="h-9 w-9 text-accent" strokeWidth={1.5} />
-    ),
+    img: pilarFoco,
     title: "Foco en Ejecución",
     body: "Actuamos como un equipo externo pero con absoluta inmersión operativa. Mantenemos objetividad para resolver crisis económico/financieras, procesos de expansión, integración, profesionalización, cambio cultural y traspasos generacionales.",
   },
   {
-    renderIcon: () => (
-      <span className="relative inline-flex items-end justify-center h-10 w-11 text-accent">
-        <Settings className="h-8 w-8" strokeWidth={1.5} />
-        <Settings className="h-5 w-5 absolute -right-0.5 bottom-0" strokeWidth={1.5} />
-      </span>
-    ),
+    img: pilarTransferencia,
     title: "Transferencia de Know-How",
     body: "No generamos dependencia. Incorporamos talento, aportamos trayectoria y capacitamos al equipo interno para garantizar la continuidad del éxito.",
   },
   {
-    renderIcon: () => (
-      <Handshake className="h-9 w-9 text-accent" strokeWidth={1.5} />
-    ),
+    img: pilarServicio,
     title: "Servicio 100% Socios",
     body: "Garantizamos compromiso directo: cada proyecto es ejecutado de principio a fin por sus socios fundadores, sin delegación en perfiles junior o terceros.",
   },
   {
-    renderIcon: () => (
-      <span className="relative inline-flex items-center justify-center h-11 w-11 text-accent">
-        <span className="absolute inset-0.5 rotate-45 border border-accent" />
-        <Eye className="h-6 w-6 relative" strokeWidth={1.5} />
-      </span>
-    ),
+    img: pilarIndependencia,
     title: "Independencia Objetiva",
     body: "Un Board Advisory que aporta visión estratégica y experiencia especializada para fortalecer la toma de decisiones en entornos complejos.",
   },
