@@ -14,7 +14,7 @@ export function Footer() {
           <img
             src={logoEnlace}
             alt="Enlace Estratégico"
-            className="h-14 w-auto rounded-sm mb-4"
+            className="h-20 w-auto mb-4"
           />
           <div className="font-serif text-lg tracking-[0.18em]">ENLACE ESTRATÉGICO</div>
           <div className="text-[11px] tracking-[0.32em] uppercase text-accent mt-1">
