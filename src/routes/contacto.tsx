@@ -135,6 +135,26 @@ function ContactoPage() {
 
           {/* Form */}
           <Reveal className="lg:col-span-3" delay={120}>
+            {sent ? (
+              <div className="rounded-sm border border-accent/30 bg-card/60 p-10 h-full flex flex-col items-center justify-center text-center">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-accent/10 border border-accent/40 mb-6">
+                  <CheckCircle2 className="h-8 w-8 text-accent" />
+                </div>
+                <h2 className="font-serif text-2xl text-foreground mb-3">¡Tu correo está listo!</h2>
+                <p className="text-sm text-muted-foreground max-w-md mb-8">
+                  Abrimos tu correo con el mensaje completo. Solo tenés que revisarlo y darle a
+                  Enviar. Si no se abrió, revisá que tu navegador no haya bloqueado la ventana.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setSent(false)}
+                  className="group inline-flex items-center gap-3 border border-accent/40 text-accent px-6 py-3 text-xs tracking-[0.25em] uppercase font-medium rounded-sm hover:bg-accent/5 transition-all"
+                >
+                  Enviar otro mensaje
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </button>
+              </div>
+            ) : (
             <form
               onSubmit={handleSubmit(onSubmit)}
               className="rounded-sm border border-accent/20 bg-card/40 p-8"
