@@ -12,7 +12,6 @@ const links = [
   { to: "/servicios", label: "Servicios" },
   { to: "/metodologia", label: "Metodología" },
   { to: "/enlace-en-accion", label: "Enlace en Acción" },
-  { to: "/contacto", label: "Contacto" },
 ] as const;
 
 function Logo() {
