@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Mail } from "lucide-react";
 import { BridgeBlueprint } from "./BridgeBlueprint";
-import logoEnlace from "@/assets/logo-enlace.jpeg";
+import logoEnlace from "@/assets/logo-enlace-footer.png";
 
 export function Footer() {
   return (
