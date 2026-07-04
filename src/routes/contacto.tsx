@@ -45,6 +45,8 @@ function ContactoPage() {
     reset,
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
+  const [sent, setSent] = useState(false);
+
   const onSubmit = (data: FormData) => {
     const subject = encodeURIComponent(`Consulta de ${data.nombre} — ${data.empresa}`);
     const body = encodeURIComponent(
@@ -59,6 +61,7 @@ function ContactoPage() {
     toast.success("Abrimos tu correo con el mensaje listo", {
       description: "Solo tenés que revisarlo y darle a Enviar.",
     });
+    setSent(true);
     reset();
   };
 
