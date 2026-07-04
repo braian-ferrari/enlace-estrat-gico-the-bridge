@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "sonner";
-import { Mail, MapPin, ArrowRight } from "lucide-react";
+import { Mail, MapPin, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { BridgeBlueprint } from "@/components/site/BridgeBlueprint";
 
