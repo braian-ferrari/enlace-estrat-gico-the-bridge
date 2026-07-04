@@ -49,9 +49,14 @@ function ContactoPage() {
     const body = encodeURIComponent(
       `Nombre: ${data.nombre}\nEmpresa: ${data.empresa}\nEmail: ${data.email}\n\n${data.mensaje}`
     );
-    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
-    toast.success("Abrimos tu cliente de email", {
-      description: "Si no se abrió, escribinos directamente a " + EMAIL,
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}&su=${subject}&body=${body}`;
+    const win = window.open(gmailUrl, "_blank", "noopener,noreferrer");
+    // Fallback al cliente de correo por defecto si el navegador bloquea la ventana
+    if (!win) {
+      window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+    }
+    toast.success("Abrimos tu correo con el mensaje listo", {
+      description: "Solo tenés que revisarlo y darle a Enviar.",
     });
     reset();
   };
