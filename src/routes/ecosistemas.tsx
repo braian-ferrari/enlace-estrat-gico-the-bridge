@@ -104,7 +104,7 @@ function HubNode() {
           </text>
         </svg>
         <span className="mt-1 text-[9px] tracking-[0.25em] uppercase text-muted-foreground px-4 leading-tight">
-          Ecosistema de Intervención
+          Ecosistemas de Intervención
         </span>
       </div>
     </div>
