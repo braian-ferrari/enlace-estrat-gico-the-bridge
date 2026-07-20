@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
+import logoEnlace from "@/assets/logo-enlace-navbar.png";
 
 export const Route = createFileRoute("/ecosistemas")({
   head: () => ({
@@ -86,23 +87,11 @@ function HubNode() {
       <div className="absolute h-56 w-56 rounded-full border border-accent/10" />
       <div className="absolute h-48 w-48 rounded-full border border-accent/20" />
       <div className="relative flex h-44 w-44 flex-col items-center justify-center rounded-full border border-accent/50 bg-gradient-navy text-center shadow-gold-glow">
-        {/* Monogram with bridge arc */}
-        <svg viewBox="0 0 120 80" className="h-16 w-auto text-accent" fill="none" stroke="currentColor" aria-hidden="true">
-          <path d="M14 30 Q60 4 106 30" strokeWidth="1.2" />
-          <line x1="38" y1="16" x2="38" y2="40" strokeWidth="0.8" opacity="0.6" />
-          <line x1="82" y1="16" x2="82" y2="40" strokeWidth="0.8" opacity="0.6" />
-          <text
-            x="60"
-            y="66"
-            textAnchor="middle"
-            fontFamily="'Playfair Display', serif"
-            fontSize="54"
-            fill="currentColor"
-            stroke="none"
-          >
-            E
-          </text>
-        </svg>
+        <img
+          src={logoEnlace}
+          alt="Enlace Estratégico"
+          className="h-16 w-auto"
+        />
         <span className="mt-1 text-[9px] tracking-[0.25em] uppercase text-muted-foreground px-4 leading-tight">
           Ecosistemas de Intervención
         </span>
