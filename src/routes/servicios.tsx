@@ -96,19 +96,18 @@ const servicios = [
 function ServiciosPage() {
   return (
     <>
-      <section className="pt-20 md:pt-28 pb-12 border-b border-accent/10">
+      <section className="pt-20 md:pt-28 pb-8 md:pb-10 border-b border-accent/10">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <Reveal>
             <SectionHeading
               eyebrow="Servicios"
               title="Nuestros Servicios"
-              description="Cada servicio se entrega con socios al frente, equipos delgados y una disciplina de implementación medible en el resultado del negocio."
             />
           </Reveal>
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
+      <section className="py-10 md:py-14">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {servicios.map((s, i) => (
@@ -148,10 +147,10 @@ function ServiciosPage() {
           </Reveal>
           <Reveal delay={120}>
             <Link
-              to="/contacto"
+              to="/metodologia"
               className="mt-10 group inline-flex items-center gap-3 bg-gradient-gold text-accent-foreground px-7 py-4 text-xs tracking-[0.25em] uppercase font-medium rounded-sm hover:opacity-90 transition-all"
             >
-              Conversemos sobre tu caso
+              Conocé nuestra metodología
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </Reveal>
