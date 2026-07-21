@@ -51,7 +51,11 @@ export function Footer() {
             <Mail className="h-4 w-4" />
             enlace.estrategico.ar@gmail.com
           </a>
-          <p className="mt-3 text-sm text-muted-foreground">Buenos Aires, Argentina</p>
+          <p className="mt-3 text-sm text-muted-foreground">
+            Buenos Aires, Córdoba, Santa Fe
+            <br />
+            Argentina
+          </p>
         </div>
       </div>
       <div className="border-t border-accent/10">

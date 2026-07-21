@@ -20,7 +20,7 @@ export const Route = createFileRoute("/contacto")({
       { property: "og:title", content: "Contacto — Enlace Estratégico" },
       {
         property: "og:description",
-        content: "enlace.estrategico.ar@gmail.com — Buenos Aires, Argentina.",
+        content: "enlace.estrategico.ar@gmail.com — Buenos Aires, Córdoba, Santa Fe. Argentina.",
       },
     ],
   }),
@@ -117,7 +117,11 @@ function ContactoPage() {
                 </div>
                 <div>
                   <div className="text-xs tracking-[0.25em] uppercase text-accent mb-1">Ubicación</div>
-                  <div className="text-sm text-foreground">Buenos Aires, Argentina</div>
+                  <div className="text-sm text-foreground">
+                    Buenos Aires, Córdoba, Santa Fe
+                    <br />
+                    Argentina
+                  </div>
                 </div>
               </div>
 
