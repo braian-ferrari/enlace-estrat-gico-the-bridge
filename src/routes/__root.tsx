@@ -11,6 +11,7 @@ import {
 import appCss from "../styles.css?url";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
+import { WhatsAppSticky } from "@/components/site/WhatsAppSticky";
 import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
