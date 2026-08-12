@@ -9,37 +9,17 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ServiciosRouteImport } from './routes/servicios'
-import { Route as MetodologiaRouteImport } from './routes/metodologia'
-import { Route as EnlaceEnAccionRouteImport } from './routes/enlace-en-accion'
-import { Route as EnfoqueRouteImport } from './routes/enfoque'
-import { Route as EcosistemasRouteImport } from './routes/ecosistemas'
-import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as EcosistemasRouteImport } from './routes/ecosistemas'
+import { Route as EnfoqueRouteImport } from './routes/enfoque'
+import { Route as EnlaceEnAccionRouteImport } from './routes/enlace-en-accion'
+import { Route as MetodologiaRouteImport } from './routes/metodologia'
+import { Route as ServiciosRouteImport } from './routes/servicios'
 
-const ServiciosRoute = ServiciosRouteImport.update({
-  id: '/servicios',
-  path: '/servicios',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MetodologiaRoute = MetodologiaRouteImport.update({
-  id: '/metodologia',
-  path: '/metodologia',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EnlaceEnAccionRoute = EnlaceEnAccionRouteImport.update({
-  id: '/enlace-en-accion',
-  path: '/enlace-en-accion',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EnfoqueRoute = EnfoqueRouteImport.update({
-  id: '/enfoque',
-  path: '/enfoque',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EcosistemasRoute = EcosistemasRouteImport.update({
-  id: '/ecosistemas',
-  path: '/ecosistemas',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactoRoute = ContactoRouteImport.update({
@@ -47,9 +27,29 @@ const ContactoRoute = ContactoRouteImport.update({
   path: '/contacto',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const EcosistemasRoute = EcosistemasRouteImport.update({
+  id: '/ecosistemas',
+  path: '/ecosistemas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnfoqueRoute = EnfoqueRouteImport.update({
+  id: '/enfoque',
+  path: '/enfoque',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnlaceEnAccionRoute = EnlaceEnAccionRouteImport.update({
+  id: '/enlace-en-accion',
+  path: '/enlace-en-accion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MetodologiaRoute = MetodologiaRouteImport.update({
+  id: '/metodologia',
+  path: '/metodologia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiciosRoute = ServiciosRouteImport.update({
+  id: '/servicios',
+  path: '/servicios',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -123,39 +123,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/servicios': {
-      id: '/servicios'
-      path: '/servicios'
-      fullPath: '/servicios'
-      preLoaderRoute: typeof ServiciosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/metodologia': {
-      id: '/metodologia'
-      path: '/metodologia'
-      fullPath: '/metodologia'
-      preLoaderRoute: typeof MetodologiaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/enlace-en-accion': {
-      id: '/enlace-en-accion'
-      path: '/enlace-en-accion'
-      fullPath: '/enlace-en-accion'
-      preLoaderRoute: typeof EnlaceEnAccionRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/enfoque': {
-      id: '/enfoque'
-      path: '/enfoque'
-      fullPath: '/enfoque'
-      preLoaderRoute: typeof EnfoqueRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ecosistemas': {
-      id: '/ecosistemas'
-      path: '/ecosistemas'
-      fullPath: '/ecosistemas'
-      preLoaderRoute: typeof EcosistemasRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contacto': {
@@ -165,11 +137,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/ecosistemas': {
+      id: '/ecosistemas'
+      path: '/ecosistemas'
+      fullPath: '/ecosistemas'
+      preLoaderRoute: typeof EcosistemasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/enfoque': {
+      id: '/enfoque'
+      path: '/enfoque'
+      fullPath: '/enfoque'
+      preLoaderRoute: typeof EnfoqueRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/enlace-en-accion': {
+      id: '/enlace-en-accion'
+      path: '/enlace-en-accion'
+      fullPath: '/enlace-en-accion'
+      preLoaderRoute: typeof EnlaceEnAccionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/metodologia': {
+      id: '/metodologia'
+      path: '/metodologia'
+      fullPath: '/metodologia'
+      preLoaderRoute: typeof MetodologiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/servicios': {
+      id: '/servicios'
+      path: '/servicios'
+      fullPath: '/servicios'
+      preLoaderRoute: typeof ServiciosRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
