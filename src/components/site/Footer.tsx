@@ -31,6 +31,7 @@ export function Footer() {
             Navegación
           </h3>
           <ul className="space-y-2 text-sm text-muted-foreground">
+            <li><Link to="/enfoque" className="hover:text-foreground transition-colors">Nuestro Diferencial</Link></li>
             <li><Link to="/ecosistemas" className="hover:text-foreground transition-colors">Ecosistemas de Intervención</Link></li>
             <li><Link to="/servicios" className="hover:text-foreground transition-colors">Servicios</Link></li>
             <li><Link to="/metodologia" className="hover:text-foreground transition-colors">Metodología</Link></li>
