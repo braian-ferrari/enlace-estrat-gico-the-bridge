@@ -7,7 +7,6 @@ import logoEnlace from "@/assets/logo-enlace-navbar.png";
 
 const links = [
   { to: "/", label: "Inicio" },
-  { to: "/enfoque", label: "Nuestro Diferencial" },
   { to: "/ecosistemas", label: "Ecosistemas de Intervención" },
   { to: "/servicios", label: "Servicios" },
   { to: "/metodologia", label: "Metodología" },
