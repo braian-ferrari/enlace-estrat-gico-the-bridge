@@ -32,14 +32,14 @@ export const Route = createFileRoute("/enfoque")({
 const pilares: { title: string; body: string; renderIcon: () => ReactNode }[] = [
   {
     renderIcon: () => (
-      <Crosshair className="h-9 w-9 text-accent" strokeWidth={1.5} />
+      <Crosshair className="h-9 w-9 text-foreground/60 group-hover:text-accent transition-colors duration-300" strokeWidth={1.5} />
     ),
     title: "Foco en Ejecución",
     body: "Actuamos como un equipo externo pero con absoluta inmersión operativa. Mantenemos objetividad para resolver crisis económico/financieras, procesos de expansión, integración, profesionalización, cambio cultural y traspasos generacionales.",
   },
   {
     renderIcon: () => (
-      <span className="relative inline-flex items-end justify-center h-10 w-11 text-accent">
+      <span className="relative inline-flex items-end justify-center h-10 w-11 text-foreground/60 group-hover:text-accent transition-colors duration-300">
         <Settings className="h-8 w-8" strokeWidth={1.5} />
         <Settings className="h-5 w-5 absolute -right-0.5 bottom-0" strokeWidth={1.5} />
       </span>
@@ -49,15 +49,15 @@ const pilares: { title: string; body: string; renderIcon: () => ReactNode }[] = 
   },
   {
     renderIcon: () => (
-      <Handshake className="h-9 w-9 text-accent" strokeWidth={1.5} />
+      <Handshake className="h-9 w-9 text-foreground/60 group-hover:text-accent transition-colors duration-300" strokeWidth={1.5} />
     ),
     title: "Servicio 100% Socios",
     body: "Garantizamos compromiso directo: cada proyecto es ejecutado de principio a fin por sus socios fundadores, sin delegación en perfiles junior o terceros.",
   },
   {
     renderIcon: () => (
-      <span className="relative inline-flex items-center justify-center h-11 w-11 text-accent">
-        <span className="absolute inset-0.5 rotate-45 border border-accent" />
+      <span className="relative inline-flex items-center justify-center h-11 w-11 text-foreground/60 group-hover:text-accent transition-colors duration-300">
+        <span className="absolute inset-0.5 rotate-45 border border-foreground/60 group-hover:border-accent transition-colors duration-300" />
         <Eye className="h-6 w-6 relative" strokeWidth={1.5} />
       </span>
     ),
@@ -87,7 +87,7 @@ function PillarColumn({ icon }: { icon: ReactNode }) {
         </div>
         <svg
           viewBox="0 0 90 130"
-          className="h-32 w-auto text-accent"
+          className="h-32 w-auto text-foreground/60 group-hover:text-accent transition-colors duration-300"
           fill="none"
           stroke="currentColor"
           aria-hidden="true"
@@ -167,12 +167,12 @@ function DiferencialPage() {
           <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {pilares.map((p, i) => (
               <Reveal key={p.title} delay={i * 100}>
-                <article className="flex h-full flex-col items-center text-center">
+                <article className="group flex h-full flex-col items-center text-center cursor-default">
                   <PillarColumn icon={p.renderIcon()} />
-                  <h3 className="mt-6 font-serif text-lg uppercase tracking-[0.1em] text-accent">
+                  <h3 className="mt-6 font-serif text-lg uppercase tracking-[0.1em] text-foreground group-hover:text-accent transition-colors duration-300">
                     {p.title}
                   </h3>
-                  <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
+                  <p className="mt-0 text-sm text-muted-foreground leading-relaxed overflow-hidden opacity-0 max-h-0 group-hover:mt-4 group-hover:opacity-100 group-hover:max-h-48 transition-all duration-300">
                     {p.body}
                   </p>
                 </article>
