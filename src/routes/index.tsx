@@ -25,7 +25,7 @@ export const Route = createFileRoute("/")({
 
 function HomePage() {
   return (
-    <section className="relative overflow-hidden bg-gradient-navy md:-mb-24 md:h-[calc(100svh-5rem)] md:min-h-[560px]">
+    <section className="relative -mb-24 h-[calc(100svh-5rem)] min-h-[560px] overflow-hidden bg-gradient-navy">
       <div className="relative mx-auto flex h-full max-w-6xl flex-col justify-center px-5 py-10 md:px-8 md:py-5">
         {/* HEADLINE */}
         <Reveal>
