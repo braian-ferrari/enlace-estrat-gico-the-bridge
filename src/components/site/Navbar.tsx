@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetHeader } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { servicios } from "@/data/services";
 import logoEnlace from "@/assets/logo-enlace-navbar.png";
 
 const links = [
@@ -49,7 +50,30 @@ export function Navbar() {
         <Logo />
 
         <nav className="hidden xl:flex items-center gap-6">
-          {links.map((l) => (
+          {links.map((l) => l.to === "/servicios" ? (
+            <div key={l.to} className="group/services relative py-7">
+              <Link
+                to={l.to}
+                className="group relative text-[13px] tracking-wide text-muted-foreground hover:text-foreground transition-colors data-[status=active]:text-accent whitespace-nowrap"
+              >
+                {l.label}
+                <span className="absolute -bottom-1.5 left-0 h-px bg-accent transition-all duration-300 w-0 group-hover:w-full group-data-[status=active]:w-full" />
+              </Link>
+              <div className="invisible absolute left-1/2 top-full w-96 -translate-x-1/2 translate-y-2 border border-accent/20 bg-popover p-2 opacity-0 shadow-elegant transition-all duration-200 group-hover/services:visible group-hover/services:translate-y-0 group-hover/services:opacity-100 group-focus-within/services:visible group-focus-within/services:translate-y-0 group-focus-within/services:opacity-100">
+                {servicios.map((servicio) => (
+                  <Link
+                    key={servicio.id}
+                    to="/servicios"
+                    hash={servicio.id}
+                    className="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-3 border-b border-accent/10 px-3 py-2.5 text-sm text-muted-foreground transition-colors last:border-b-0 hover:bg-card hover:text-accent focus:bg-card focus:text-accent focus:outline-none"
+                  >
+                    <servicio.icon className="h-4 w-4 shrink-0" strokeWidth={1.5} />
+                    <span className="min-w-0 leading-snug">{servicio.shortTitle}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ) : (
             <Link
               key={l.to}
               to={l.to}
@@ -82,8 +106,8 @@ export function Navbar() {
             </SheetHeader>
             <nav className="mt-8 flex flex-col gap-1 px-2">
               {links.map((l) => (
+                <div key={l.to}>
                 <Link
-                  key={l.to}
                   to={l.to}
                   activeOptions={{ exact: l.to === "/" }}
                   onClick={() => setOpen(false)}
@@ -91,6 +115,22 @@ export function Navbar() {
                 >
                   {l.label}
                 </Link>
+                {l.to === "/servicios" && (
+                  <div className="ml-6 border-l border-accent/20 pl-2">
+                    {servicios.map((servicio) => (
+                      <Link
+                        key={servicio.id}
+                        to="/servicios"
+                        hash={servicio.id}
+                        onClick={() => setOpen(false)}
+                        className="block px-4 py-2 text-xs leading-snug text-muted-foreground transition-colors hover:text-accent"
+                      >
+                        {servicio.shortTitle}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+                </div>
               ))}
               <Link
                 to="/contacto"
