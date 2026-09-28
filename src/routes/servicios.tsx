@@ -5,6 +5,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { servicios } from "@/data/services";
+import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/servicios")({
   head: () => ({
@@ -27,20 +28,20 @@ export const Route = createFileRoute("/servicios")({
 });
 
 function ServiciosPage() {
-  const [activeId, setActiveId] = useState(servicios[0].id);
+  const [activeId, setActiveId] = useState<string>(servicios[0].id);
   const activeService = servicios.find((service) => service.id === activeId) ?? servicios[0];
 
   useEffect(() => {
     const syncFromHash = () => {
       const id = window.location.hash.slice(1);
-      if (servicios.some((service) => service.id === id)) setActiveId(id as typeof activeId);
+      if (servicios.some((service) => service.id === id)) setActiveId(id);
     };
     syncFromHash();
     window.addEventListener("hashchange", syncFromHash);
     return () => window.removeEventListener("hashchange", syncFromHash);
   }, []);
 
-  const selectService = (id: typeof activeId) => {
+  const selectService = (id: string) => {
     setActiveId(id);
     window.history.replaceState(null, "", `#${id}`);
   };
