@@ -1,10 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import {
-  Users, TrendingUp, Cog, Wallet,
-  ShieldAlert, BarChart3, Landmark, ArrowRight,
-} from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeading } from "@/components/site/SectionHeading";
+import { Button } from "@/components/ui/button";
+import { servicios } from "@/data/services";
+import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/servicios")({
   head: () => ({
@@ -26,74 +27,25 @@ export const Route = createFileRoute("/servicios")({
   component: ServiciosPage,
 });
 
-const servicios = [
-  {
-    icon: Users,
-    title: "Profesionalización y Recambio Generacional",
-    lead: "De la intuición a la estructura: asegurar la continuidad y el crecimiento de su legado.",
-    items: [
-      { k: "Formalización de la gestión", v: "Transformamos procesos improvisados en un modelo de negocio institucional, combinando tecnología aplicada, finanzas sanas y claridad estratégica." },
-      { k: "Gobierno corporativo", v: "Diseñamos estructuras claras y separamos roles clave para que delegar la operación sea seguro, sostenible y eficiente." },
-      { k: "Transición y sucesión", v: "Guiamos el recambio generacional mediante mentoría y formación del nuevo talento directivo, garantizando que el negocio trascienda sin perder estabilidad." },
-    ],
-  },
-  {
-    icon: TrendingUp,
-    title: "Proyectos de Expansión",
-    lead: "Modelos escalables para conquistar nuevos mercados.",
-    items: [
-      { k: "Crecimiento estructurado", v: "Diseñamos e implementamos modelos financieros y organizacionales aptos para el desarrollo de nuevas líneas de negocio o mercados geográficos." },
-      { k: "Estrategia en Startups y M&A", v: "Ofrecemos asesoramiento integral y acompañamiento estratégico tanto en el lanzamiento de startups como en procesos de fusiones y adquisiciones (Take-Overs)." },
-    ],
-  },
-  {
-    icon: Cog,
-    title: "Reingeniería de Procesos y Estructuras",
-    lead: "Optimización y modernización de áreas clave.",
-    items: [
-      { k: "Eficiencia con Inteligencia Artificial", v: "Rediseñamos procesos e implementamos flujos de trabajo híbridos, integrando agentes de IA según la madurez digital de la empresa para maximizar la productividad." },
-      { k: "Estructura a medida", v: "Reestructuramos, mejoramos o creamos nuevas áreas funcionales alineadas con los objetivos actuales del negocio." },
-    ],
-  },
-  {
-    icon: Wallet,
-    title: "Reducción de Costos y Eficiencia del Capital de Trabajo",
-    lead: "Maximizar la rentabilidad protegiendo su liquidez.",
-    items: [
-      { k: "Rentabilidad inteligente", v: "Analizamos a fondo los costos, precios y márgenes por producto o unidad de negocio para identificar fugas de dinero." },
-      { k: "Eficiencia sostenible", v: "Reducimos costos mediante la digitalización y automatización de tareas. Alineamos las decisiones operativas con la gestión del capital de trabajo para multiplicar resultados sin generar tensiones de caja." },
-    ],
-  },
-  {
-    icon: ShieldAlert,
-    title: "Análisis de Riesgos y Auditoría Interna",
-    lead: "Blindamos el valor de su compañía ante un entorno incierto.",
-    items: [
-      { k: "Gestión de riesgos", v: "Diagnosticamos, mapeamos y monitoreamos amenazas potenciales, transformando la prevención en resiliencia y ventaja competitiva." },
-      { k: "Auditoría interna estratégica", v: "Implementamos el área de auditoría como un aliado clave del negocio, utilizando enfoques ágiles y análisis continuo para asegurar el cumplimiento y protección de los activos." },
-    ],
-  },
-  {
-    icon: BarChart3,
-    title: "Contabilidad Estratégica y Reportes de Gestión",
-    lead: "Usar los números para escribir el futuro, no para leer el pasado.",
-    items: [
-      { k: "Tableros de control (KPIs)", v: "Diseñamos reportes de gestión gerencial y herramientas visuales para que la toma de decisiones se base en datos en tiempo real." },
-      { k: "Soporte continuo", v: "Brindamos asesoramiento administrativo y contable constante, convirtiendo los datos regulatorios en insights de negocio." },
-    ],
-  },
-  {
-    icon: Landmark,
-    title: "Advisory Board (Consejo Asesor)",
-    lead: "Una mirada externa experta para mantener el rumbo.",
-    items: [
-      { k: "Disciplina ejecutiva", v: "Participamos activamente en sus revisiones estratégicas, aportando una visión objetiva y corporativa." },
-      { k: "Mentoría y control", v: "Monitoreamos los KPIs críticos del negocio y brindamos mentoría a los líderes de la organización para asegurar el cumplimiento de metas." },
-    ],
-  },
-] as const;
-
 function ServiciosPage() {
+  const [activeId, setActiveId] = useState<string>(servicios[0].id);
+  const activeService = servicios.find((service) => service.id === activeId) ?? servicios[0];
+
+  useEffect(() => {
+    const syncFromHash = () => {
+      const id = window.location.hash.slice(1);
+      if (servicios.some((service) => service.id === id)) setActiveId(id);
+    };
+    syncFromHash();
+    window.addEventListener("hashchange", syncFromHash);
+    return () => window.removeEventListener("hashchange", syncFromHash);
+  }, []);
+
+  const selectService = (id: string) => {
+    setActiveId(id);
+    window.history.replaceState(null, "", `#${id}`);
+  };
+
   return (
     <>
       <section className="pt-20 md:pt-28 pb-8 md:pb-10 border-b border-accent/10">
@@ -109,31 +61,63 @@ function ServiciosPage() {
 
       <section className="py-10 md:py-14">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {servicios.map((s, i) => (
-              <Reveal key={s.title} delay={(i % 3) * 90}>
-                <article className="group h-full flex flex-col rounded-sm border border-accent/20 bg-card/60 p-7 transition-all hover:border-accent/60 hover:-translate-y-1 hover:shadow-gold-glow">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent/10 border border-accent/30 group-hover:bg-accent/20 transition-colors">
-                      <s.icon className="h-5 w-5 text-accent" />
-                    </div>
-                    <span className="font-serif text-accent/70 text-sm">0{i + 1}</span>
+          <div className="grid items-start gap-8 lg:grid-cols-[minmax(260px,0.34fr)_minmax(0,1fr)] lg:gap-12">
+            <Reveal>
+              <div className="border-y border-accent/20 lg:sticky lg:top-28">
+                {servicios.map((service) => {
+                  const selected = service.id === activeId;
+                  return (
+                    <Button
+                      key={service.id}
+                      type="button"
+                      variant="ghost"
+                      onClick={() => selectService(service.id)}
+                      aria-pressed={selected}
+                      className={cn(
+                        "grid h-auto w-full grid-cols-[minmax(0,1fr)_auto] rounded-none border-b border-accent/15 px-4 py-4 text-left text-sm leading-snug whitespace-normal last:border-b-0 hover:bg-card hover:text-foreground",
+                        selected && "border-r-2 border-r-accent bg-card text-accent",
+                      )}
+                    >
+                      <span className="min-w-0">{service.shortTitle}</span>
+                      <ChevronRight className={cn("h-4 w-4 shrink-0 transition-transform", selected && "translate-x-1 text-accent")} />
+                    </Button>
+                  );
+                })}
+              </div>
+            </Reveal>
+
+            <Reveal key={activeService.id}>
+              <article id={activeService.id} className="min-w-0 scroll-mt-28 py-2 lg:min-h-[460px]">
+                <div className="grid grid-cols-[auto_minmax(0,1fr)] items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-accent/30 bg-accent/10">
+                    <activeService.icon className="h-5 w-5 text-accent" strokeWidth={1.5} />
                   </div>
-                  <h3 className="font-serif text-xl text-foreground mb-2">{s.title}</h3>
-                  <p className="text-sm italic text-accent mb-5 leading-relaxed">{s.lead}</p>
-                  <ul className="space-y-4">
-                    {s.items.map((it) => (
-                      <li key={it.k} className="text-sm leading-relaxed">
-                        <span className="block text-foreground font-medium mb-0.5">
-                          {it.k}
-                        </span>
-                        <span className="text-muted-foreground">{it.v}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              </Reveal>
-            ))}
+                  <div className="min-w-0">
+                    <p className="mb-2 text-xs uppercase tracking-[0.22em] text-accent">Servicio seleccionado</p>
+                    <h2 className="font-serif text-2xl uppercase leading-tight text-foreground md:text-4xl">
+                      {activeService.title}
+                    </h2>
+                  </div>
+                </div>
+
+                <p className="mt-7 border-l-2 border-accent pl-5 font-serif text-xl italic leading-relaxed text-accent md:text-2xl">
+                  {activeService.lead}
+                </p>
+
+                <div className="mt-8 space-y-6">
+                  {activeService.items.map((item) => (
+                    <section key={item.k} className="border-b border-accent/15 pb-6 last:border-b-0">
+                      <h3 className="font-sans text-sm font-semibold uppercase tracking-[0.12em] text-foreground">
+                        {item.k}
+                      </h3>
+                      <p className="mt-2 max-w-3xl text-sm leading-7 text-muted-foreground md:text-base">
+                        {item.v}
+                      </p>
+                    </section>
+                  ))}
+                </div>
+              </article>
+            </Reveal>
           </div>
         </div>
       </section>
