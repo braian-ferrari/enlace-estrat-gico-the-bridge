@@ -2,6 +2,7 @@ import {
   BarChart3,
   Cog,
   Landmark,
+  Scale,
   ShieldAlert,
   TrendingUp,
   Users,
