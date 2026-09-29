@@ -1,6 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import {
+  Columns3,
+  TrendingDown,
+  Users,
+  Building2,
+  ShieldCheck,
+  Target,
+  ArrowRight,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
+import logoEnlace from "@/assets/logo-enlace-navbar.png";
 
 export const Route = createFileRoute("/ecosistemas")({
   head: () => ({
@@ -22,12 +32,70 @@ export const Route = createFileRoute("/ecosistemas")({
   component: EcosistemasPage,
 });
 
+const left: { icon: LucideIcon; text: string }[] = [
+  { icon: Columns3, text: "Organizaciones que necesitan ordenar, estabilizar y escalar." },
+  { icon: TrendingDown, text: "Reducción de costos y eficiencia de capital de trabajo." },
+  { icon: Users, text: "Transformación, profesionalización y cambio cultural." },
+];
+
+const right: { icon: LucideIcon; text: string }[] = [
+  { icon: Building2, text: "Empresas en crisis operativa, financiera o de gobierno." },
+  { icon: ShieldCheck, text: "Procesos de turnaround (rescate corporativo)." },
+  {
+    icon: Target,
+    text: "Proyectos de expansión: start-ups, take-overs, integración post adquisición.",
+  },
+];
+
 function Ornament() {
   return (
     <div className="flex items-center justify-center gap-3 text-accent/70">
       <span className="h-px w-16 bg-accent/40" />
       <span className="rotate-45 inline-block h-1.5 w-1.5 border border-accent/70" />
       <span className="h-px w-16 bg-accent/40" />
+    </div>
+  );
+}
+
+function Spoke({
+  item,
+  side,
+}: {
+  item: { icon: LucideIcon; text: string };
+  side: "left" | "right";
+}) {
+  const Icon = item.icon;
+  return (
+    <div
+      className={`group flex items-center gap-4 ${
+        side === "left" ? "lg:flex-row-reverse lg:text-right" : ""
+      }`}
+    >
+      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-accent/40 bg-accent/5 text-accent transition-colors group-hover:bg-accent/15">
+        <Icon className="h-6 w-6" strokeWidth={1.5} />
+      </div>
+      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed uppercase tracking-[0.12em]">
+        {item.text}
+      </p>
+    </div>
+  );
+}
+
+function HubNode() {
+  return (
+    <div className="relative flex items-center justify-center">
+      <div className="absolute h-56 w-56 rounded-full border border-accent/10" />
+      <div className="absolute h-48 w-48 rounded-full border border-accent/20" />
+      <div className="relative flex h-44 w-44 flex-col items-center justify-center rounded-full border border-accent/50 bg-gradient-navy text-center shadow-gold-glow">
+        <img
+          src={logoEnlace}
+          alt="Enlace Estratégico"
+          className="h-16 w-auto"
+        />
+        <span className="mt-1 text-[9px] tracking-[0.25em] uppercase text-muted-foreground px-4 leading-tight">
+          Ecosistemas de Intervención
+        </span>
+      </div>
     </div>
   );
 }
@@ -51,16 +119,33 @@ function EcosistemasPage() {
         </div>
       </section>
 
-      {/* MAPA INTERACTIVO */}
-      <section className="py-8 md:py-12">
-        <div className="mx-auto max-w-7xl px-3 md:px-6">
-          <Reveal>
-            <iframe
-              src="/ecosistemas-grafo.html"
-              className="w-full h-[85vh] border-0 rounded-xl"
-              title="Ecosistemas de Intervención"
-            />
-          </Reveal>
+      {/* HUB & SPOKES */}
+      <section className="py-12 md:py-20">
+        <div className="mx-auto max-w-6xl px-5 md:px-8">
+          <div className="grid items-center gap-12 lg:grid-cols-[1fr_auto_1fr] lg:gap-10">
+            {/* Left contexts */}
+            <div className="order-2 lg:order-1 flex flex-col gap-10">
+              {left.map((item, i) => (
+                <Reveal key={item.text} delay={i * 90}>
+                  <Spoke item={item} side="left" />
+                </Reveal>
+              ))}
+            </div>
+
+            {/* Hub */}
+            <Reveal className="order-1 lg:order-2" delay={120}>
+              <HubNode />
+            </Reveal>
+
+            {/* Right contexts */}
+            <div className="order-3 flex flex-col gap-10">
+              {right.map((item, i) => (
+                <Reveal key={item.text} delay={i * 90}>
+                  <Spoke item={item} side="right" />
+                </Reveal>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
