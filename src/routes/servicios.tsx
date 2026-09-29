@@ -11,17 +11,17 @@ export const Route = createFileRoute("/servicios")({
   head: () => ({
     meta: [
       { title: "Servicios — Enlace Estratégico" },
-        {
-          name: "description",
-          content:
-            "Profesionalización, expansión, reingeniería de procesos, reducción de costos, riesgos y auditoría, contabilidad estratégica, advisory board y procesos concursales. Socios al frente y resultados medibles.",
-        },
-        { property: "og:title", content: "Servicios — Enlace Estratégico" },
-        {
-          property: "og:description",
-          content:
-            "Servicios entregados con socios al frente, equipos delgados y disciplina de implementación medible en el resultado del negocio.",
-        },
+      {
+        name: "description",
+        content:
+          "Profesionalización, expansión, reingeniería de procesos, reducción de costos, riesgos y auditoría, contabilidad estratégica y advisory board. Socios al frente y resultados medibles.",
+      },
+      { property: "og:title", content: "Servicios — Enlace Estratégico" },
+      {
+        property: "og:description",
+        content:
+          "Siete servicios entregados con socios al frente, equipos delgados y disciplina de implementación medible en el resultado del negocio.",
+      },
     ],
   }),
   component: ServiciosPage,
