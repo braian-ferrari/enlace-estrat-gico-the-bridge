@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
+import { useRef } from "react";
 import { Reveal } from "@/components/site/Reveal";
+import { ChallengeAdvisor } from "@/components/site/ChallengeAdvisor";
 
 export const Route = createFileRoute("/ecosistemas")({
   head: () => ({
@@ -33,6 +35,7 @@ function Ornament() {
 }
 
 function EcosistemasPage() {
+  const frameRef = useRef<HTMLIFrameElement>(null);
   return (
     <>
       {/* HEADER */}
@@ -51,11 +54,19 @@ function EcosistemasPage() {
         </div>
       </section>
 
+      {/* ASESOR IA */}
+      <section className="pb-4 px-5 md:px-8">
+        <Reveal>
+          <ChallengeAdvisor frameRef={frameRef} />
+        </Reveal>
+      </section>
+
       {/* MAPA INTERACTIVO */}
       <section className="py-8 md:py-12">
         <div className="mx-auto max-w-7xl px-3 md:px-6">
           <Reveal>
             <iframe
+              ref={frameRef}
               src="/ecosistemas-grafo.html"
               className="w-full h-[85vh] border-0 rounded-xl"
               title="Ecosistemas de Intervención"
