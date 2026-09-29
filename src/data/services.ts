@@ -87,4 +87,15 @@ export const servicios = [
       { k: "Mentoría y control", v: "Monitoreamos los KPIs críticos del negocio y brindamos mentoría a los líderes de la organización para asegurar el cumplimiento de metas." },
     ],
   },
+  {
+    id: "procesos-concursales",
+    icon: Scale,
+    title: "Gestión Integral y Acompañamiento Operativo en Procesos Concursales",
+    shortTitle: "Procesos Concursales",
+    lead: "También contamos con experiencia para acompañar empresas que atraviesan procesos concursales o de reestructuración, trabajando de manera coordinada con la Dirección y sus asesores legales.",
+    items: [
+      { k: "Objetivo", v: "Ordenar, validar y fortalecer la información administrativa y contable, mejorar el control de gestión, responder a los requerimientos propios del proceso y acompañar el seguimiento de la operación y la generación de fondos." },
+      { k: "Más allá del proceso", v: "El foco está puesto no solamente en atravesar el proceso concursal, sino también en generar una organización más ordenada, eficiente y sustentable." },
+    ],
+  },
 ] as const;
