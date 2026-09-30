@@ -58,7 +58,7 @@ const pasos = [
 function MetodologiaPage() {
   return (
     <>
-      <section className="pt-20 md:pt-28 pb-12 border-b border-accent/10">
+      <section className="pt-14 md:pt-16 pb-8 border-b border-accent/10">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <Reveal>
             <SectionHeading
@@ -70,31 +70,31 @@ function MetodologiaPage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
+      <section className="py-10 md:py-12">
         <div className="mx-auto max-w-5xl px-5 md:px-8">
-          <div className="relative flex flex-col gap-8">
+          <div className="relative flex flex-col gap-5 md:gap-6">
             {/* connecting line */}
             <span className="absolute left-[27px] top-4 bottom-4 w-px bg-accent/20 hidden md:block" />
             {pasos.map((p, i) => (
               <Reveal key={p.num} delay={i * 100}>
-                <article className="group relative grid gap-5 md:grid-cols-[56px_1fr] rounded-sm border border-accent/20 bg-card/60 p-7 md:p-8 transition-all hover:border-accent/60 hover:shadow-gold-glow">
+                <article className="group relative grid gap-4 md:grid-cols-[56px_1fr] rounded-sm border border-accent/20 bg-card/60 p-5 md:p-6 transition-all hover:border-accent/60 hover:shadow-gold-glow">
                   <div className="relative flex md:flex-col items-center gap-3 md:gap-0">
                     <div className="flex h-14 w-14 items-center justify-center rounded-full bg-accent/10 border border-accent/40 group-hover:bg-accent/20 transition-colors z-10">
                       <p.icon className="h-6 w-6 text-accent" />
                     </div>
                   </div>
                   <div>
-                    <div className="flex items-center gap-3 flex-wrap mb-2">
-                      <span className="font-serif text-accent text-2xl">{p.num}</span>
-                      <h3 className="font-serif text-2xl text-foreground">{p.title}</h3>
+                    <div className="flex items-center gap-3 flex-wrap mb-1.5">
+                      <span className="font-serif text-accent text-xl">{p.num}</span>
+                      <h3 className="font-serif text-xl md:text-2xl text-foreground">{p.title}</h3>
                       {p.tag && (
                         <span className="text-[10px] tracking-[0.2em] uppercase text-accent border border-accent/40 rounded-sm px-2 py-1">
                           {p.tag}
                         </span>
                       )}
                     </div>
-                    <p className="text-base italic text-accent mb-3 leading-relaxed">{p.lead}</p>
-                    <p className="text-muted-foreground leading-relaxed">{p.body}</p>
+                    <p className="text-sm italic text-accent mb-2 leading-relaxed">{p.lead}</p>
+                    <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{p.body}</p>
                   </div>
                 </article>
               </Reveal>
@@ -103,17 +103,17 @@ function MetodologiaPage() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28 border-t border-accent/10 bg-card/30">
+      <section className="py-12 md:py-16 border-t border-accent/10 bg-card/30">
         <div className="mx-auto max-w-4xl px-5 md:px-8 text-center">
           <Reveal>
-            <p className="font-serif italic text-2xl md:text-3xl text-foreground text-balance leading-snug">
+            <p className="font-serif italic text-xl md:text-2xl text-foreground text-balance leading-snug">
               "Construimos el puente entre la estrategia y los resultados reales."
             </p>
           </Reveal>
           <Reveal delay={120}>
             <Link
               to="/contacto"
-              className="mt-12 group inline-flex items-center gap-3 bg-gradient-gold text-accent-foreground px-7 py-4 text-xs tracking-[0.25em] uppercase font-medium rounded-sm hover:opacity-90 transition-all"
+              className="mt-8 group inline-flex items-center gap-3 bg-gradient-gold text-accent-foreground px-6 py-3 text-xs tracking-[0.25em] uppercase font-medium rounded-sm hover:opacity-90 transition-all"
             >
               Iniciá la conversación
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
