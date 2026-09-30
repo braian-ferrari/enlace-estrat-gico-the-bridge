@@ -10,7 +10,6 @@ const links = [
   { to: "/", label: "Inicio" },
   { to: "/enfoque", label: "Nuestro Diferencial" },
   { to: "/servicios", label: "Servicios" },
-  { to: "/ecosistemas", label: "Ecosistemas de Intervención" },
   { to: "/metodologia", label: "Metodología" },
   { to: "/enlace-en-accion", label: "Enlace en Acción" },
 ] as const;
