@@ -52,7 +52,6 @@ function ServiciosPage() {
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <Reveal>
             <SectionHeading
-              eyebrow="Servicios"
               title="Nuestros Servicios"
             />
           </Reveal>
