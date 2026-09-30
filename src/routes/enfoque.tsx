@@ -180,17 +180,6 @@ function DiferencialPage() {
             ))}
           </div>
 
-          <Reveal delay={200}>
-            <div className="mt-16 flex justify-center">
-              <Link
-                to="/ecosistemas"
-                className="group inline-flex items-center gap-3 bg-gradient-gold text-accent-foreground px-7 py-4 text-xs tracking-[0.25em] uppercase font-medium rounded-sm hover:opacity-90 transition-all"
-              >
-                Ecosistemas de intervención
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </div>
-          </Reveal>
         </div>
       </section>
     </>
