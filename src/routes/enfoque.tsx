@@ -130,7 +130,7 @@ function DiferencialPage() {
   return (
     <>
       {/* HEADER */}
-      <section className="pt-24 md:pt-20 pb-4 md:pb-6">
+      <section className="pt-24 md:pt-20 pb-4 md:pb-3">
         <div className="mx-auto max-w-5xl px-5 md:px-8 text-center">
           <Reveal>
             <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl uppercase tracking-[0.12em] text-foreground leading-tight">
@@ -147,7 +147,7 @@ function DiferencialPage() {
       </section>
 
       {/* LOS PILARES */}
-      <section className="py-14 md:py-12 border-t border-accent/10 bg-gradient-navy">
+      <section className="py-14 md:py-10 border-t border-accent/10 bg-gradient-navy">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <Reveal>
             <div className="text-center">
