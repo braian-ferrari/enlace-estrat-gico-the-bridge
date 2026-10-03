@@ -31,16 +31,16 @@ export const Route = createFileRoute("/enfoque")({
 const pilares: { title: string; body: string; renderIcon: () => ReactNode }[] = [
   {
     renderIcon: () => (
-      <Crosshair className="h-9 w-9 text-foreground group-hover:text-accent transition-colors duration-300" strokeWidth={1.5} />
+      <Crosshair className="h-7 w-7 text-foreground group-hover:text-accent transition-colors duration-300" strokeWidth={1.5} />
     ),
     title: "Foco en Ejecución",
     body: "Actuamos como un equipo externo pero con absoluta inmersión operativa. Mantenemos objetividad para resolver crisis económico/financieras, procesos de expansión, integración, profesionalización, cambio cultural y traspasos generacionales.",
   },
   {
     renderIcon: () => (
-      <span className="relative inline-flex items-end justify-center h-10 w-11 text-foreground group-hover:text-accent transition-colors duration-300">
-        <Settings className="h-8 w-8" strokeWidth={1.5} />
-        <Settings className="h-5 w-5 absolute -right-0.5 bottom-0" strokeWidth={1.5} />
+      <span className="relative inline-flex items-end justify-center h-8 w-9 text-foreground group-hover:text-accent transition-colors duration-300">
+        <Settings className="h-6 w-6" strokeWidth={1.5} />
+        <Settings className="h-4 w-4 absolute -right-0.5 bottom-0" strokeWidth={1.5} />
       </span>
     ),
     title: "Transferencia de Know-How",
@@ -48,16 +48,16 @@ const pilares: { title: string; body: string; renderIcon: () => ReactNode }[] = 
   },
   {
     renderIcon: () => (
-      <Handshake className="h-9 w-9 text-foreground group-hover:text-accent transition-colors duration-300" strokeWidth={1.5} />
+      <Handshake className="h-7 w-7 text-foreground group-hover:text-accent transition-colors duration-300" strokeWidth={1.5} />
     ),
     title: "Servicio 100% Socios",
     body: "Garantizamos compromiso directo: cada proyecto es ejecutado de principio a fin por sus socios fundadores, sin delegación en perfiles junior o terceros.",
   },
   {
     renderIcon: () => (
-      <span className="relative inline-flex items-center justify-center h-11 w-11 text-foreground group-hover:text-accent transition-colors duration-300">
+      <span className="relative inline-flex items-center justify-center h-9 w-9 text-foreground group-hover:text-accent transition-colors duration-300">
         <span className="absolute inset-0.5 rotate-45 border border-foreground group-hover:border-accent transition-colors duration-300" />
-        <Eye className="h-6 w-6 relative" strokeWidth={1.5} />
+        <Eye className="h-5 w-5 relative" strokeWidth={1.5} />
       </span>
     ),
     title: "Independencia Objetiva",
@@ -86,7 +86,7 @@ function PillarColumn({ icon }: { icon: ReactNode }) {
         </div>
         <svg
           viewBox="0 0 90 130"
-          className="h-32 w-auto text-foreground group-hover:text-accent transition-colors duration-300"
+          className="h-24 md:h-24 w-auto text-foreground group-hover:text-accent transition-colors duration-300"
           fill="none"
           stroke="currentColor"
           aria-hidden="true"
@@ -130,16 +130,16 @@ function DiferencialPage() {
   return (
     <>
       {/* HEADER */}
-      <section className="pt-24 md:pt-32 pb-10">
+      <section className="pt-24 md:pt-20 pb-4 md:pb-3">
         <div className="mx-auto max-w-5xl px-5 md:px-8 text-center">
           <Reveal>
-            <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl uppercase tracking-[0.12em] text-foreground leading-tight">
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl uppercase tracking-[0.12em] text-foreground leading-tight">
               Un <span className="text-accent">Paradigma Diferente</span>
               <br className="hidden sm:block" /> de Intervención
             </h1>
           </Reveal>
           <Reveal delay={120}>
-            <div className="mt-8">
+            <div className="mt-4 md:mt-5">
               <Ornament />
             </div>
           </Reveal>
@@ -147,28 +147,28 @@ function DiferencialPage() {
       </section>
 
       {/* LOS PILARES */}
-      <section className="py-20 md:py-28 border-t border-accent/10 bg-gradient-navy">
+      <section className="py-14 md:py-10 border-t border-accent/10 bg-gradient-navy">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <Reveal>
             <div className="text-center">
-              <h2 className="font-serif text-3xl md:text-5xl uppercase tracking-[0.18em] text-foreground">
+              <h2 className="font-serif text-3xl md:text-4xl uppercase tracking-[0.18em] text-foreground">
                 Los Pilares
               </h2>
               <p className="mt-3 text-sm md:text-base uppercase tracking-[0.3em] text-accent">
                 De nuestra propuesta de valor
               </p>
-              <div className="mt-7">
+              <div className="mt-4 md:mt-5">
                 <Ornament />
               </div>
             </div>
           </Reveal>
 
-          <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 md:mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {pilares.map((p, i) => (
               <Reveal key={p.title} delay={i * 100}>
                 <article className="group flex h-full flex-col items-center text-center cursor-default">
                   <PillarColumn icon={p.renderIcon()} />
-                  <h3 className="mt-6 font-serif text-lg uppercase tracking-[0.1em] text-foreground group-hover:text-accent transition-colors duration-300">
+                  <h3 className="mt-4 font-serif text-lg uppercase tracking-[0.1em] text-foreground group-hover:text-accent transition-colors duration-300">
                     {p.title}
                   </h3>
                   <p className="mt-4 text-sm text-muted-foreground leading-relaxed md:mt-0 md:overflow-hidden md:opacity-0 md:max-h-0 md:group-hover:mt-4 md:group-hover:opacity-100 md:group-hover:max-h-48 transition-all duration-300">
