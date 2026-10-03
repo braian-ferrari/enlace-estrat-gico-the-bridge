@@ -130,16 +130,16 @@ function DiferencialPage() {
   return (
     <>
       {/* HEADER */}
-      <section className="pt-24 md:pt-32 pb-10">
+      <section className="pt-24 md:pt-20 pb-4 md:pb-6">
         <div className="mx-auto max-w-5xl px-5 md:px-8 text-center">
           <Reveal>
-            <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl uppercase tracking-[0.12em] text-foreground leading-tight">
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl uppercase tracking-[0.12em] text-foreground leading-tight">
               Un <span className="text-accent">Paradigma Diferente</span>
               <br className="hidden sm:block" /> de Intervención
             </h1>
           </Reveal>
           <Reveal delay={120}>
-            <div className="mt-8">
+            <div className="mt-4 md:mt-5">
               <Ornament />
             </div>
           </Reveal>
@@ -147,23 +147,23 @@ function DiferencialPage() {
       </section>
 
       {/* LOS PILARES */}
-      <section className="py-20 md:py-28 border-t border-accent/10 bg-gradient-navy">
+      <section className="py-14 md:py-12 border-t border-accent/10 bg-gradient-navy">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
           <Reveal>
             <div className="text-center">
-              <h2 className="font-serif text-3xl md:text-5xl uppercase tracking-[0.18em] text-foreground">
+              <h2 className="font-serif text-3xl md:text-4xl uppercase tracking-[0.18em] text-foreground">
                 Los Pilares
               </h2>
               <p className="mt-3 text-sm md:text-base uppercase tracking-[0.3em] text-accent">
                 De nuestra propuesta de valor
               </p>
-              <div className="mt-7">
+              <div className="mt-4 md:mt-5">
                 <Ornament />
               </div>
             </div>
           </Reveal>
 
-          <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 md:mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {pilares.map((p, i) => (
               <Reveal key={p.title} delay={i * 100}>
                 <article className="group flex h-full flex-col items-center text-center cursor-default">
