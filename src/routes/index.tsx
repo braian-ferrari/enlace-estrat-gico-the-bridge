@@ -18,6 +18,8 @@ export const Route = createFileRoute("/")({
         content:
           "Consultoría boutique con foco en ejecución, transferencia de know-how y servicio 100% socios.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: HomePage,

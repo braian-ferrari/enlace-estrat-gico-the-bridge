@@ -23,6 +23,8 @@ export const Route = createFileRoute("/enfoque")({
         content:
           "Los pilares de nuestra propuesta de valor: foco en ejecución, transferencia de know-how, servicio 100% socios e independencia objetiva.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: DiferencialPage,

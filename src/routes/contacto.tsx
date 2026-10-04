@@ -22,6 +22,8 @@ export const Route = createFileRoute("/contacto")({
         property: "og:description",
         content: "enlace.estrategico.ar@gmail.com — Buenos Aires, Córdoba, Santa Fe. Argentina.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: ContactoPage,
@@ -66,39 +68,39 @@ function ContactoPage() {
   };
 
   return (
-    <>
-      <section className="relative pt-20 md:pt-28 pb-16 overflow-hidden border-b border-accent/10">
+    <section className="md:-mb-24 md:flex md:h-[calc(100svh-5rem)] md:min-h-[560px] md:flex-col md:overflow-hidden">
+      <div className="relative overflow-hidden border-b border-accent/10 pt-20 pb-16 md:shrink-0 md:py-4">
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.06]">
           <BridgeBlueprint className="w-[140%]" />
         </div>
         <div className="relative mx-auto max-w-4xl px-5 md:px-8 text-center">
           <Reveal>
-            <div className="flex items-center justify-center gap-3 mb-6 text-accent text-xs tracking-[0.32em] uppercase">
+            <div className="mb-6 flex items-center justify-center gap-3 text-xs uppercase tracking-[0.32em] text-accent md:mb-2">
               <span className="h-px w-10 bg-accent" />
               Contacto
               <span className="h-px w-10 bg-accent" />
             </div>
           </Reveal>
           <Reveal delay={100}>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground text-balance leading-[1.1]">
+            <h1 className="font-serif text-4xl text-foreground text-balance leading-[1.1] md:text-3xl">
               Construyendo el puente hacia la{" "}
               <span className="italic text-accent">excelencia operativa.</span>
             </h1>
           </Reveal>
         </div>
 
-      </section>
+      </div>
 
-      <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-6xl px-5 md:px-8 grid gap-10 lg:grid-cols-5">
+      <div className="py-16 md:min-h-0 md:flex-1 md:py-4">
+        <div className="mx-auto grid h-full max-w-6xl gap-10 px-5 md:grid-cols-5 md:gap-6 md:px-8">
           {/* Info */}
-          <Reveal className="lg:col-span-2">
-            <div className="rounded-sm border border-accent/20 bg-card/60 p-8 h-full">
-              <h2 className="font-serif text-2xl text-foreground mb-6">Escribinos</h2>
+          <Reveal className="md:col-span-2 md:min-h-0">
+            <div className="h-full overflow-y-auto rounded-sm border border-accent/20 bg-card/60 p-8 md:p-5">
+              <h2 className="mb-6 font-serif text-2xl text-foreground md:mb-3">Escribinos</h2>
 
               <a
                 href={`mailto:${EMAIL}`}
-                className="group flex items-start gap-4 mb-6 p-4 -mx-4 rounded-sm hover:bg-accent/5 transition-colors"
+                className="group -mx-4 mb-6 flex items-start gap-4 rounded-sm p-4 transition-colors hover:bg-accent/5 md:mb-2 md:py-2"
               >
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent/10 border border-accent/30">
                   <Mail className="h-5 w-5 text-accent" />
@@ -111,7 +113,7 @@ function ContactoPage() {
                 </div>
               </a>
 
-              <div className="flex items-start gap-4 mb-8">
+              <div className="mb-8 flex items-start gap-4 md:mb-3">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent/10 border border-accent/30">
                   <MapPin className="h-5 w-5 text-accent" />
                 </div>
@@ -125,7 +127,7 @@ function ContactoPage() {
                 </div>
               </div>
 
-              <div className="border-t border-accent/15 pt-6">
+              <div className="border-t border-accent/15 pt-6 md:pt-3">
                 <a
                   href={`mailto:${EMAIL}`}
                   className="group inline-flex items-center gap-3 bg-gradient-gold text-accent-foreground px-6 py-3 text-xs tracking-[0.25em] uppercase font-medium rounded-sm hover:opacity-90 transition-all w-full justify-center"
@@ -138,9 +140,9 @@ function ContactoPage() {
           </Reveal>
 
           {/* Form */}
-          <Reveal className="lg:col-span-3" delay={120}>
+          <Reveal className="md:col-span-3 md:min-h-0" delay={120}>
             {sent ? (
-              <div className="rounded-sm border border-accent/30 bg-card/60 p-10 h-full flex flex-col items-center justify-center text-center">
+              <div className="flex h-full flex-col items-center justify-center rounded-sm border border-accent/30 bg-card/60 p-10 text-center md:overflow-y-auto">
                 <div className="flex h-16 w-16 items-center justify-center rounded-full bg-accent/10 border border-accent/40 mb-6">
                   <CheckCircle2 className="h-8 w-8 text-accent" />
                 </div>
@@ -161,12 +163,12 @@ function ContactoPage() {
             ) : (
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="rounded-sm border border-accent/20 bg-card/40 p-8"
+              className="rounded-sm border border-accent/20 bg-card/40 p-8 md:h-full md:overflow-y-auto md:p-5"
               noValidate
             >
-              <h2 className="font-serif text-2xl text-foreground mb-6">Formulario de contacto</h2>
+              <h2 className="mb-6 font-serif text-2xl text-foreground md:mb-3">Formulario de contacto</h2>
 
-              <div className="grid gap-5 sm:grid-cols-2">
+              <div className="grid gap-5 sm:grid-cols-2 md:gap-3">
                 <Field label="Nombre" error={errors.nombre?.message}>
                   <input
                     {...register("nombre")}
@@ -185,7 +187,7 @@ function ContactoPage() {
                 </Field>
               </div>
 
-              <div className="mt-5">
+              <div className="mt-5 md:mt-3">
                 <Field label="Email" error={errors.email?.message}>
                   <input
                     {...register("email")}
@@ -197,7 +199,7 @@ function ContactoPage() {
                 </Field>
               </div>
 
-              <div className="mt-5">
+              <div className="mt-5 md:mt-3">
                 <Field label="Mensaje" error={errors.mensaje?.message}>
                   <textarea
                     {...register("mensaje")}
@@ -211,7 +213,7 @@ function ContactoPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="mt-8 group inline-flex items-center gap-3 bg-gradient-gold text-accent-foreground px-7 py-4 text-xs tracking-[0.25em] uppercase font-medium rounded-sm hover:opacity-90 transition-all disabled:opacity-50"
+                className="mt-8 group inline-flex items-center gap-3 bg-gradient-gold text-accent-foreground px-7 py-4 text-xs tracking-[0.25em] uppercase font-medium rounded-sm hover:opacity-90 transition-all disabled:opacity-50 md:mt-4 md:px-5 md:py-2.5"
               >
                 Enviar
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -220,7 +222,7 @@ function ContactoPage() {
             )}
           </Reveal>
         </div>
-      </section>
+      </div>
 
       <style>{`
         .contact-input {
@@ -228,7 +230,7 @@ function ContactoPage() {
           background: transparent;
           border: 1px solid color-mix(in oklab, var(--accent) 25%, transparent);
           color: var(--foreground);
-          padding: 0.85rem 1rem;
+          padding: 0.7rem 0.85rem;
           font-size: 0.925rem;
           border-radius: 2px;
           outline: none;
@@ -242,7 +244,7 @@ function ContactoPage() {
           box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 20%, transparent);
         }
       `}</style>
-    </>
+    </section>
   );
 }
 
