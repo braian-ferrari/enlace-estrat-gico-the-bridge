@@ -6,4 +6,4 @@
 ## Todas las páginas en una pantalla
 
 - [x] Definir el comportamiento para páginas cuyo contenido completo excede una pantalla.
-- [ ] Compactar y verificar todas las páginas en escritorio.
+- [x] Compactar y verificar todas las páginas en escritorio.
