@@ -22,6 +22,8 @@ export const Route = createFileRoute("/enlace-en-accion")({
         content:
           "Construyendo el puente hacia la excelencia operativa. ¿Construimos el puente hacia la excelencia juntos?",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: EnlaceEnAccionPage,
@@ -59,41 +61,41 @@ function EnlaceEnAccionPage() {
   };
 
   return (
-    <>
+    <section className="md:-mb-24 md:flex md:h-[calc(100svh-5rem)] md:min-h-[560px] md:flex-col md:overflow-hidden">
       {/* HERO BANNER */}
-      <section className="relative py-24 md:py-32 border-b border-accent/10 bg-gradient-navy overflow-hidden">
+      <div className="relative overflow-hidden border-b border-accent/10 bg-gradient-navy py-24 md:shrink-0 md:py-4">
         <div className="absolute inset-x-0 bottom-0 opacity-[0.18] pointer-events-none">
           <BridgeBanner />
         </div>
         <div className="relative mx-auto max-w-4xl px-5 md:px-8 text-center">
           <Reveal>
-            <div className="flex items-center justify-center gap-3 mb-6 text-accent text-xs tracking-[0.32em] uppercase">
+            <div className="mb-6 flex items-center justify-center gap-3 text-xs uppercase tracking-[0.32em] text-accent md:mb-2">
               <span className="h-px w-10 bg-accent" />
               Enlace en Acción
               <span className="h-px w-10 bg-accent" />
             </div>
           </Reveal>
           <Reveal delay={120}>
-            <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl text-foreground text-balance leading-[1.15]">
+            <h1 className="font-serif text-3xl text-foreground text-balance leading-[1.15] md:text-4xl">
               Construyendo el <span className="text-accent">Puente</span> hacia la{" "}
               <span className="text-accent">Excelencia Operativa</span>
             </h1>
           </Reveal>
         </div>
-      </section>
+      </div>
 
       {/* CONTENT + FORM */}
-      <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-6xl px-5 md:px-8 grid gap-10 lg:grid-cols-5">
-          <Reveal className="lg:col-span-2">
-            <div className="h-full flex flex-col justify-center">
-              <p className="text-lg text-muted-foreground leading-relaxed">
+      <div className="py-16 md:min-h-0 md:flex-1 md:py-4">
+        <div className="mx-auto grid h-full max-w-6xl gap-10 px-5 md:grid-cols-5 md:gap-6 md:px-8">
+          <Reveal className="md:col-span-2 md:min-h-0">
+            <div className="flex h-full flex-col justify-center md:overflow-y-auto md:pr-2">
+              <p className="text-lg text-muted-foreground leading-relaxed md:text-base">
                 Hemos ayudado a construir el puente hacia la excelencia operativa a
                 varias organizaciones. Si te interesa conocer Enlace Estratégico en
                 acción viendo la aplicación práctica de nuestra metodología de trabajo,
                 dejanos tus datos y nos pondremos en contacto.
               </p>
-              <h2 className="mt-10 font-serif text-2xl md:text-3xl text-foreground leading-snug">
+              <h2 className="mt-10 font-serif text-2xl text-foreground leading-snug md:mt-5">
                 ¿Construimos el puente hacia la{" "}
                 <span className="text-accent">excelencia</span> juntos?
               </h2>
@@ -101,13 +103,13 @@ function EnlaceEnAccionPage() {
           </Reveal>
 
           {/* Form */}
-          <Reveal className="lg:col-span-3" delay={120}>
+          <Reveal className="md:col-span-3 md:min-h-0" delay={120}>
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="rounded-sm border border-accent/20 bg-card/40 p-8"
+              className="rounded-sm border border-accent/20 bg-card/40 p-8 md:h-full md:overflow-y-auto md:p-5"
               noValidate
             >
-              <div className="grid gap-5 sm:grid-cols-2">
+              <div className="grid gap-5 sm:grid-cols-2 md:gap-3">
                 <Field label="Nombre" error={errors.nombre?.message}>
                   <input
                     {...register("nombre")}
@@ -126,7 +128,7 @@ function EnlaceEnAccionPage() {
                 </Field>
               </div>
 
-              <div className="mt-5 grid gap-5 sm:grid-cols-2">
+              <div className="mt-5 grid gap-5 sm:grid-cols-2 md:mt-3 md:gap-3">
                 <Field label="Email" error={errors.email?.message}>
                   <input
                     {...register("email")}
@@ -147,7 +149,7 @@ function EnlaceEnAccionPage() {
                 </Field>
               </div>
 
-              <div className="mt-5">
+              <div className="mt-5 md:mt-3">
                 <Field label="¿Cuál es tu desafío?" error={errors.mensaje?.message}>
                   <textarea
                     {...register("mensaje")}
@@ -161,7 +163,7 @@ function EnlaceEnAccionPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="mt-8 group inline-flex items-center gap-3 bg-gradient-gold text-accent-foreground px-7 py-4 text-xs tracking-[0.25em] uppercase font-medium rounded-sm hover:opacity-90 transition-all disabled:opacity-50"
+                className="mt-8 group inline-flex items-center gap-3 bg-gradient-gold text-accent-foreground px-7 py-4 text-xs tracking-[0.25em] uppercase font-medium rounded-sm hover:opacity-90 transition-all disabled:opacity-50 md:mt-4 md:px-5 md:py-2.5"
               >
                 Quiero conocer más
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -176,7 +178,7 @@ function EnlaceEnAccionPage() {
             background: transparent;
             border: 1px solid color-mix(in oklab, var(--accent) 25%, transparent);
             color: var(--foreground);
-            padding: 0.85rem 1rem;
+            padding: 0.7rem 0.85rem;
             font-size: 0.925rem;
             border-radius: 2px;
             outline: none;
@@ -190,8 +192,8 @@ function EnlaceEnAccionPage() {
             box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 20%, transparent);
           }
         `}</style>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
 

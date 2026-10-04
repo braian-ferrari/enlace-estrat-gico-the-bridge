@@ -22,6 +22,8 @@ export const Route = createFileRoute("/servicios")({
           content:
             "Servicios entregados con socios al frente, equipos delgados y disciplina de implementación medible en el resultado del negocio.",
         },
+        { property: "og:type", content: "website" },
+        { name: "twitter:card", content: "summary" },
     ],
   }),
   component: ServiciosPage,
@@ -47,22 +49,20 @@ function ServiciosPage() {
   };
 
   return (
-    <>
-      <section className="pt-20 md:pt-28 pb-8 md:pb-10 border-b border-accent/10">
+    <section className="md:-mb-24 md:flex md:h-[calc(100svh-5rem)] md:min-h-[560px] md:flex-col md:overflow-hidden">
+      <div className="border-b border-accent/10 pt-14 pb-8 md:shrink-0 md:py-4">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <Reveal>
-            <SectionHeading
-              title="Nuestros Servicios"
-            />
+            <SectionHeading title="Nuestros Servicios" className="md:[&_h2]:text-3xl" />
           </Reveal>
         </div>
-      </section>
+      </div>
 
-      <section className="py-10 md:py-14">
-        <div className="mx-auto max-w-7xl px-5 md:px-8">
-          <div className="grid items-start gap-8 lg:grid-cols-[minmax(260px,0.34fr)_minmax(0,1fr)] lg:gap-12">
+      <div className="py-10 md:min-h-0 md:flex-1 md:py-4">
+        <div className="mx-auto h-full max-w-7xl px-5 md:px-8">
+          <div className="grid h-full items-start gap-8 md:grid-cols-[minmax(240px,0.34fr)_minmax(0,1fr)] md:gap-8">
             <Reveal>
-              <div className="border-y border-accent/20 lg:sticky lg:top-28">
+              <div className="border-y border-accent/20 md:max-h-full md:overflow-y-auto">
                 {servicios.map((service) => {
                   const selected = service.id === activeId;
                   return (
@@ -73,7 +73,7 @@ function ServiciosPage() {
                       onClick={() => selectService(service.id)}
                       aria-pressed={selected}
                       className={cn(
-                        "grid h-auto w-full grid-cols-[minmax(0,1fr)_auto] rounded-none border-b border-accent/15 px-4 py-4 text-left text-sm leading-snug whitespace-normal last:border-b-0 hover:bg-card hover:text-foreground",
+                        "grid h-auto w-full grid-cols-[minmax(0,1fr)_auto] rounded-none border-b border-accent/15 px-4 py-4 text-left text-sm leading-snug whitespace-normal last:border-b-0 hover:bg-card hover:text-foreground md:py-3",
                         selected && "border-r-2 border-r-accent bg-card text-accent",
                       )}
                     >
@@ -85,43 +85,53 @@ function ServiciosPage() {
               </div>
             </Reveal>
 
-            <Reveal key={activeService.id}>
-              <article id={activeService.id} className="min-w-0 scroll-mt-28 py-2 lg:min-h-[460px]">
+            <Reveal key={activeService.id} className="md:h-full md:min-h-0">
+              <article id={activeService.id} className="min-w-0 scroll-mt-28 py-2 md:flex md:h-full md:min-h-0 md:flex-col">
                 <div className="grid grid-cols-[auto_minmax(0,1fr)] items-start gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-accent/30 bg-accent/10">
                     <activeService.icon className="h-5 w-5 text-accent" strokeWidth={1.5} />
                   </div>
                   <div className="min-w-0">
                     <p className="mb-2 text-xs uppercase tracking-[0.22em] text-accent">Servicio seleccionado</p>
-                    <h2 className="font-serif text-2xl uppercase leading-tight text-foreground md:text-4xl">
+                    <h2 className="font-serif text-2xl uppercase leading-tight text-foreground md:text-3xl">
                       {activeService.title}
                     </h2>
                   </div>
                 </div>
 
-                <p className="mt-7 border-l-2 border-accent pl-5 font-serif text-xl italic leading-relaxed text-accent md:text-2xl">
+                <p className="mt-7 border-l-2 border-accent pl-5 font-serif text-xl italic leading-relaxed text-accent md:mt-4 md:text-lg">
                   {activeService.lead}
                 </p>
 
-                <div className="mt-8 space-y-6">
+                <div className="mt-8 space-y-6 md:min-h-0 md:flex-1 md:space-y-4 md:overflow-y-auto md:pr-3">
                   {activeService.items.map((item) => (
-                    <section key={item.k} className="border-b border-accent/15 pb-6 last:border-b-0">
+                    <section key={item.k} className="border-b border-accent/15 pb-6 last:border-b-0 md:pb-4">
                       <h3 className="font-sans text-sm font-semibold uppercase tracking-[0.12em] text-foreground">
                         {item.k}
                       </h3>
-                      <p className="mt-2 max-w-3xl text-sm leading-7 text-muted-foreground md:text-base">
+                      <p className="mt-2 max-w-3xl text-sm leading-6 text-muted-foreground">
                         {item.v}
                       </p>
                     </section>
                   ))}
                 </div>
+                <div className="mt-4 hidden shrink-0 items-center justify-between gap-4 border-t border-accent/15 pt-3 md:flex">
+                  <p className="font-serif text-sm italic text-foreground">“Soluciones quirúrgicas para situaciones complejas.”</p>
+                  <Link
+                    to="/metodologia"
+                    className="group inline-flex shrink-0 items-center gap-2 bg-gradient-gold px-4 py-2 text-[10px] font-medium uppercase tracking-[0.2em] text-accent-foreground"
+                  >
+                    Nuestra metodología
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
               </article>
             </Reveal>
           </div>
         </div>
-      </section>
+      </div>
 
-      <section className="py-20 border-t border-accent/10">
+      <div className="border-t border-accent/10 py-20 md:hidden">
         <div className="mx-auto max-w-3xl px-5 md:px-8 text-center">
           <Reveal>
             <p className="font-serif italic text-2xl md:text-3xl text-foreground text-balance leading-snug">
@@ -138,7 +148,7 @@ function ServiciosPage() {
             </Link>
           </Reveal>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
