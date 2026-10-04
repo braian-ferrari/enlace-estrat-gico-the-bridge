@@ -17,6 +17,8 @@ export const Route = createFileRoute("/ecosistemas")({
         content:
           "Seis contextos donde nuestra intervención genera tracción real: el ecosistema de actuación de Enlace Estratégico.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: EcosistemasPage,
@@ -34,41 +36,41 @@ function Ornament() {
 
 function EcosistemasPage() {
   return (
-    <>
+    <section className="md:-mb-24 md:flex md:h-[calc(100svh-5rem)] md:min-h-[560px] md:flex-col md:overflow-hidden">
       {/* HEADER */}
-      <section className="pt-24 md:pt-32 pb-6">
+      <div className="pt-24 pb-6 md:shrink-0 md:py-3">
         <div className="mx-auto max-w-5xl px-5 md:px-8 text-center">
           <Reveal>
-            <h1 className="font-serif text-3xl md:text-5xl uppercase tracking-[0.12em] text-foreground leading-tight">
+            <h1 className="font-serif text-3xl uppercase tracking-[0.12em] text-foreground leading-tight md:text-4xl">
               Contextos <span className="text-accent">Críticos</span> de Actuación
             </h1>
           </Reveal>
           <Reveal delay={120}>
-            <div className="mt-8">
+            <div className="mt-8 md:mt-2">
               <Ornament />
             </div>
           </Reveal>
         </div>
-      </section>
+      </div>
 
       {/* MAPA INTERACTIVO */}
-      <section className="py-8 md:py-12">
-        <div className="mx-auto max-w-7xl px-3 md:px-6">
-          <Reveal>
+      <div className="py-8 md:min-h-0 md:flex-1 md:py-3">
+        <div className="mx-auto h-full max-w-7xl px-3 md:px-6">
+          <Reveal className="h-full">
             <iframe
               src="/ecosistemas-grafo.html"
-              className="w-full h-[85vh] border-0 rounded-xl"
+              className="h-[85vh] w-full rounded-xl border-0 md:h-full"
               title="Ecosistemas de Intervención"
             />
           </Reveal>
         </div>
-      </section>
+      </div>
 
       {/* CLOSING */}
-      <section className="py-16 md:py-20 border-t border-accent/10 bg-card/20">
-        <div className="mx-auto max-w-3xl px-5 md:px-8 text-center">
+      <div className="border-t border-accent/10 bg-card/20 py-16 md:flex md:h-16 md:shrink-0 md:items-center md:py-0">
+        <div className="mx-auto max-w-4xl px-5 text-center md:flex md:w-full md:items-center md:justify-between md:gap-5 md:px-8">
           <Reveal>
-            <p className="font-serif italic text-2xl md:text-3xl text-foreground text-balance leading-snug">
+            <p className="font-serif italic text-2xl text-foreground text-balance leading-snug md:text-sm">
               "Donde otros ven complejidad, nosotros construimos el puente hacia la
               ejecución."
             </p>
@@ -76,14 +78,14 @@ function EcosistemasPage() {
           <Reveal delay={120}>
             <Link
               to="/servicios"
-              className="mt-10 group inline-flex items-center gap-3 bg-gradient-gold text-accent-foreground px-7 py-4 text-xs tracking-[0.25em] uppercase font-medium rounded-sm hover:opacity-90 transition-all"
+              className="mt-10 group inline-flex items-center gap-3 bg-gradient-gold text-accent-foreground px-7 py-4 text-xs tracking-[0.25em] uppercase font-medium rounded-sm hover:opacity-90 transition-all md:mt-0 md:px-4 md:py-2 md:text-[10px]"
             >
               Conocé nuestros servicios
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </Reveal>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
